@@ -1,0 +1,40 @@
+<div class="page-header">
+    <h1>Crear Apoyo</h1>
+</div>
+<div class="row-fluid">
+
+    <div class="span12" >
+        <div id="res-form-ajax"><?php View::content(); ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal'); ?>
+        
+        <?php echo Form::hidden('apApoyo.pkApoyo'); ?>
+        <div class="control-group">
+            <label class="control-label" for="ap_apoyo">Descripcion </label>
+            <div class="controls">
+                <?php echo Form::text('apApoyo.descripcion'); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="ap_apoyo">Monto : </label>
+            <div class="controls">
+                <?php echo Form::text('apApoyo.monto'); ?>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="ap_apoyo">Feria : </label>
+            <div class="controls">
+             <?php echo Form::dbSelect('apApoyo.ferias_pkFeria', 'nombre', array('ap_ferias', 'find', 'pkFeria'), 'Ninguno') ?>
+            </div>
+        </div>
+
+
+        <div class="form-actions">
+            <?php echo Form::submit('Guardar Datos', 'class="btn btn-small  btn-primary"'); ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-small"'); ?>
+
+
+        </div>
+        <?php echo Form::close() ?>
+    </div>
+</div>

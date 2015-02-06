@@ -1,0 +1,123 @@
+[Thu, 19 Sep 13 16:32:37 -0500][CRITICAL] exception 'KumbiaException' with message 'No existe el método 'getSolicitudes' en ActiveRecord::ApSolicitudesForaneo' in C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php:542
+Stack trace:
+#0 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(38): KumbiaActiveRecord->__call('getSolicitudes', Array)
+#1 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(38): ApSolicitudesForaneo->getSolicitudes(1)
+#2 [internal function]: SolicitudesController->listaForaneo()
+#3 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#4 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#5 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#6 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#8 {main}
+[Thu, 19 Sep 13 16:43:30 -0500][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'ap_solicitudes_foraneo.ferias_pkFeria' in 'on clause' al ejecutar <em>"SELECT COUNT(*) FROM ap_solicitudes_foraneo  LEFT JOIN usuarios AS U ON U.id=ap_solicitudes_foraneo.usuarios_pkUsuario LEFT JOIN ap_ferias AS F ON F.pkFeria=ap_solicitudes_foraneo.ferias_pkFeria  WHERE F.activo='1' and ap_solicitudes_foraneo.estatus='1'"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(160): DbMySQL->query('SELECT COUNT(*)...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(1039): DbBase->fetch_one('SELECT COUNT(*)...')
+#2 [internal function]: KumbiaActiveRecord->count('columns: ap_sol...', 'join: LEFT JOIN...', 'order: fechaReg...', 'F.activo='1' an...')
+#3 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\behaviors\paginate.php(126): call_user_func_array(Array, Array)
+#4 [internal function]: Paginator::paginate(Object(ApSolicitudesForaneo), 'page: 1', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#5 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes_foraneo.php(135): KumbiaActiveRecord->paginate('page: 1', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#7 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(38): ApSolicitudesForaneo->getSolicitudes(1)
+#8 [internal function]: SolicitudesController->listaForaneo()
+#9 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#10 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#11 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#12 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#14 {main}
+[Thu, 19 Sep 13 16:43:57 -0500][CRITICAL] exception 'KumbiaException' with message 'No existe el método 'getSolicitudesCanceladas' en ActiveRecord::ApSolicitudesForaneo' in C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php:542
+Stack trace:
+#0 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(39): KumbiaActiveRecord->__call('getSolicitudesC...', Array)
+#1 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(39): ApSolicitudesForaneo->getSolicitudesCanceladas(1)
+#2 [internal function]: SolicitudesController->listaForaneo()
+#3 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#4 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#5 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#6 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#8 {main}
+[Thu, 19 Sep 13 16:44:31 -0500][CRITICAL] exception 'KumbiaException' with message 'No existe el método 'getSolicitudesCanceladas' en ActiveRecord::ApSolicitudesForaneo' in C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php:542
+Stack trace:
+#0 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(39): KumbiaActiveRecord->__call('getSolicitudesC...', Array)
+#1 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(39): ApSolicitudesForaneo->getSolicitudesCanceladas(1)
+#2 [internal function]: SolicitudesController->listaForaneo()
+#3 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#4 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#5 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#6 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#8 {main}
+[Thu, 19 Sep 13 16:46:29 -0500][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'U.nombre' in 'field list' al ejecutar <em>"SELECT ap_solicitudes_foraneo.pkSolicitud,ap_solicitudes_foraneo.fechaRegistro,ap_solicitudes_foraneo.nombreResponsable,ap_solicitudes_foraneo.telefonoResponsable,ap_solicitudes_foraneo.emailReponsable,ap_solicitudes_foraneo.nombreSolicitante,ap_solicitudes_foraneo.telefonoSolicitante,ap_solicitudes_foraneo.emailSolicitante,ap_solicitudes_foraneo.apoyo,ap_solicitudes_foraneo.estatus,ap_solicitudes_foraneo.usuarios_pkUsuario,ap_solicitudes_foraneo.usuarios_pkUsuario_cancelado,ap_solicitudes_foraneo.nombreInstitucion,ap_solicitudes_foraneo.nivelEscolar,ap_solicitudes_foraneo.domicilio,ap_solicitudes_foraneo.referenciaDomicilio,ap_solicitudes_foraneo.turno,ap_solicitudes_foraneo.municipio,ap_solicitudes_foraneo.telefonoInstitucion,ap_solicitudes_foraneo.emailEscuela,ap_solicitudes_foraneo.nombreDirector,ap_solicitudes_foraneo.emailDirector,ap_solicitudes_foraneo.pkFeria, U.nombre FROM ap_solicitudes_foraneo LEFT JOIN usuarios AS U ON U.id=ap_solicitudes_foraneo.usuarios_pkUsuario LEFT JOIN ap_ferias AS F ON F.pkFeria=ap_solicitudes_foraneo.pkFeria  WHERE F.activo='1' and ap_solicitudes_foraneo.estatus='1' ORDER BY fechaRegistro desc  LIMIT 30 OFFSET 0"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(89): DbMySQL->query('SELECT ap_solic...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(852): DbBase->in_query('SELECT ap_solic...')
+#2 [internal function]: KumbiaActiveRecord->find('columns: ap_sol...', 'join: LEFT JOIN...', 'order: fechaReg...', 'F.activo='1' an...', 'offset: 0', 'limit: 30')
+#3 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\behaviors\paginate.php(136): call_user_func_array(Array, Array)
+#4 [internal function]: Paginator::paginate(Object(ApSolicitudesForaneo), 'page: 1', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#5 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes_foraneo.php(135): KumbiaActiveRecord->paginate('page: 1', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#7 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(38): ApSolicitudesForaneo->getSolicitudes(1)
+#8 [internal function]: SolicitudesController->listaForaneo()
+#9 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#10 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#11 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#12 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#14 {main}
+[Thu, 19 Sep 13 16:46:52 -0500][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'U.nombre' in 'field list' al ejecutar <em>"SELECT ap_solicitudes_foraneo.pkSolicitud,ap_solicitudes_foraneo.fechaRegistro,ap_solicitudes_foraneo.nombreResponsable,ap_solicitudes_foraneo.telefonoResponsable,ap_solicitudes_foraneo.emailReponsable,ap_solicitudes_foraneo.nombreSolicitante,ap_solicitudes_foraneo.telefonoSolicitante,ap_solicitudes_foraneo.emailSolicitante,ap_solicitudes_foraneo.apoyo,ap_solicitudes_foraneo.estatus,ap_solicitudes_foraneo.usuarios_pkUsuario,ap_solicitudes_foraneo.usuarios_pkUsuario_cancelado,ap_solicitudes_foraneo.nombreInstitucion,ap_solicitudes_foraneo.nivelEscolar,ap_solicitudes_foraneo.domicilio,ap_solicitudes_foraneo.referenciaDomicilio,ap_solicitudes_foraneo.turno,ap_solicitudes_foraneo.municipio,ap_solicitudes_foraneo.telefonoInstitucion,ap_solicitudes_foraneo.emailEscuela,ap_solicitudes_foraneo.nombreDirector,ap_solicitudes_foraneo.emailDirector,ap_solicitudes_foraneo.pkFeria, U.nombre as nombreUsuario FROM ap_solicitudes_foraneo LEFT JOIN usuarios AS U ON U.id=ap_solicitudes_foraneo.usuarios_pkUsuario LEFT JOIN ap_ferias AS F ON F.pkFeria=ap_solicitudes_foraneo.pkFeria  WHERE F.activo='1' and ap_solicitudes_foraneo.estatus='1' ORDER BY fechaRegistro desc  LIMIT 30 OFFSET 0"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(89): DbMySQL->query('SELECT ap_solic...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(852): DbBase->in_query('SELECT ap_solic...')
+#2 [internal function]: KumbiaActiveRecord->find('columns: ap_sol...', 'join: LEFT JOIN...', 'order: fechaReg...', 'F.activo='1' an...', 'offset: 0', 'limit: 30')
+#3 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\behaviors\paginate.php(136): call_user_func_array(Array, Array)
+#4 [internal function]: Paginator::paginate(Object(ApSolicitudesForaneo), 'page: 1', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#5 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes_foraneo.php(135): KumbiaActiveRecord->paginate('page: 1', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#7 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(38): ApSolicitudesForaneo->getSolicitudes(1)
+#8 [internal function]: SolicitudesController->listaForaneo()
+#9 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#10 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#11 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#12 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#14 {main}
+[Thu, 19 Sep 13 16:48:34 -0500][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'active' in 'where clause' al ejecutar <em>"SELECT pkFeria,nombre,tematica,fechaInicio,fechaFin,activo FROM ap_ferias WHERE active='1' LIMIT 1"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(160): DbMySQL->query('SELECT pkFeria,...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(808): DbBase->fetch_one('SELECT pkFeria,...')
+#2 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes_foraneo.php(51): KumbiaActiveRecord->find_first('active='1'')
+#3 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(285): ApSolicitudesForaneo->guardarSolicitud(Array, Array, Array)
+#4 [internal function]: SolicitudesController->foranea()
+#5 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#6 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#7 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#8 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#10 {main}
+[Thu, 19 Sep 13 16:49:41 -0500][CRITICAL] exception 'KumbiaException' with message 'Cannot add or update a child row: a foreign key constraint fails (`feria_transporte2013`.`ap_solicitudes_foraneo`, CONSTRAINT `FK_ap_solicitudes_foraneo_ap_ferias` FOREIGN KEY (`pkFeria`) REFERENCES `ap_ferias` (`pkFeria`) ON DELETE CASCADE ON UPDATE CASCADE) al ejecutar <em>"INSERT INTO ap_solicitudes_foraneo (fechaRegistro,nombreResponsable,telefonoResponsable,emailReponsable,nombreSolicitante,telefonoSolicitante,emailSolicitante,apoyo,estatus,usuarios_pkUsuario,usuarios_pkUsuario_cancelado,nombreInstitucion,nivelEscolar,domicilio,referenciaDomicilio,turno,municipio,telefonoInstitucion,emailEscuela,nombreDirector,emailDirector,pkFeria) VALUES ('2013-09-19 16:49:00','DAvid canche canche','9858521455','15454as5d4qasda','asdaasdasd','-8558596658','asdasdasd','1852','1','3',NULL,'Centro de Bachillerato Tecnologico Industrial y de Servicios Num. 120','Bachillerato Técnico','Kilometro 6 Carretera Antigua Merida-progreso','Enfrende el kukulcan','MATUTINO','Mérida','9999999999',NULL,'Joaquin Gamboa','joaquin.gamboa@gmail.com','<KumbiaActiveRecord Object>')"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(191): DbMySQL->query('INSERT INTO ap_...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(1756): DbBase->insert('ap_solicitudes_...', Array, Array)
+#2 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes_foraneo.php(54): KumbiaActiveRecord->save()
+#3 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(285): ApSolicitudesForaneo->guardarSolicitud(Array, Array, Array)
+#4 [internal function]: SolicitudesController->foranea()
+#5 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#6 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#7 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#8 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#10 {main}
+[Thu, 19 Sep 13 16:50:21 -0500][CRITICAL] exception 'KumbiaException' with message 'Cannot add or update a child row: a foreign key constraint fails (`feria_transporte2013`.`ap_solicitudes_foraneo`, CONSTRAINT `FK_ap_solicitudes_foraneo_ap_ferias` FOREIGN KEY (`pkFeria`) REFERENCES `ap_ferias` (`pkFeria`) ON DELETE CASCADE ON UPDATE CASCADE) al ejecutar <em>"INSERT INTO ap_solicitudes_foraneo (fechaRegistro,nombreResponsable,telefonoResponsable,emailReponsable,nombreSolicitante,telefonoSolicitante,emailSolicitante,apoyo,estatus,usuarios_pkUsuario,usuarios_pkUsuario_cancelado,nombreInstitucion,nivelEscolar,domicilio,referenciaDomicilio,turno,municipio,telefonoInstitucion,emailEscuela,nombreDirector,emailDirector,pkFeria) VALUES ('2013-09-19 16:50:00','DAvid canche canche','9858521455','15454as5d4qasda','asdaasdasd','-8558596658','asdasdasd','1852','1','3',NULL,'Centro de Bachillerato Tecnologico Industrial y de Servicios Num. 120','Bachillerato Técnico','Kilometro 6 Carretera Antigua Merida-progreso','Enfrende el kukulcan','MATUTINO','Mérida','9999999999',NULL,'Joaquin Gamboa','joaquin.gamboa@gmail.com','<KumbiaActiveRecord Object>')"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(191): DbMySQL->query('INSERT INTO ap_...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(1756): DbBase->insert('ap_solicitudes_...', Array, Array)
+#2 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes_foraneo.php(54): KumbiaActiveRecord->save()
+#3 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(285): ApSolicitudesForaneo->guardarSolicitud(Array, Array, Array)
+#4 [internal function]: SolicitudesController->foranea()
+#5 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#6 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#7 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#8 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#10 {main}

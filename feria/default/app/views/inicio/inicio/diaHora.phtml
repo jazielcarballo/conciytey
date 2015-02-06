@@ -1,0 +1,129 @@
+<?php
+
+Load::lib("phpExcel/Classes/PHPExcel");
+
+$objPHPExcel = new PHPExcel();
+
+
+$objPHPExcel = new PHPExcel();
+
+// Set document properties
+
+$objPHPExcel->getProperties()->setCreator('SISTEMA DE TRASPORTES')
+        ->setLastModifiedBy('SISTEMA DE TRASPORTES')
+        ->setTitle('LISTADO DE SOLICITUDES')
+        ->setSubject('LISTA')
+        ->setDescription('CONTIENE TODAS LAS SOLICITUDES')
+        ->setKeywords('SOLICITUDES')
+        ->setCategory('RESULTADO DE CONSULTA');
+
+
+
+
+$row = 2;
+$dias = array();
+
+
+$hoja = 0;
+foreach ($diasFeria as $d) {
+    $objPHPExcel->createSheet(NULL, $hoja);
+    $objPHPExcel->setActiveSheetIndex($hoja);
+    $objPHPExcel->getActiveSheet($hoja)->setTitle($d->fecha);
+
+    $objPHPExcel->setActiveSheetIndex($hoja)
+            ->setCellValue('A' . $row . '', "FOLIO")
+            ->setCellValue('B' . $row . '', "NOMBRE DE LA INSTITUCION")
+            ->setCellValue('C' . $row . '', "FECHA DE VISITA")
+            ->setCellValue('D' . $row . '', "SALIDA ESCUELA")
+            ->setCellValue('E' . $row . '', "LLEDADA AL EVENTO")
+            ->setCellValue('F' . $row . '', "SALIDA DEL EVENTO")
+            ->setCellValue('G' . $row . '', "LLEGADA ESCUELA")
+            ->setCellValue('H' . $row . '', "NIVEL ESCOLAR")
+            ->setCellValue('I' . $row . '', "DIRECTOR")
+            ->setCellValue('J' . $row . '', "TELEFONO DE LA INSITUTUCION")
+            ->setCellValue('K' . $row . '', "RESPONSABLE DEL CAMION")
+            ->setCellValue('L' . $row . '', "TELEFONO")
+            ->setCellValue('M' . $row . '', "SOLICITANTE")
+            ->setCellValue('N' . $row . '', "TELEFONO")
+            ->setCellValue('O' . $row . '', "#ALUMNOS")
+            ->setCellValue('P' . $row . '', "#ALUMNAS")
+            ->setCellValue('Q' . $row . '', "#AC. MUJERES")
+            ->setCellValue('R' . $row . '', "#AC. HOMBRES")
+            ->setCellValue('S' . $row . '', "APOYO")
+            ->setCellValue('T' . $row . '', "MONTO")
+            ->setCellValue('U' . $row . '', "FECHA SOLICITUD")
+            ->setCellValue('V' . $row . '', "REALIZADO POR")
+            ->setCellValue('W' . $row . '', "DIRECCION DE LA ESCUELA")
+			->setCellValue('X' . $row . '', "REFERENCIA DE LA ESCUELA")
+			->setCellValue('Y' . $row . '', "ESTATUS DE LA SOLICITUD");
+    array_push($dias, $d->fecha);
+
+    $hoja++;
+}
+
+$i = 2;
+foreach ($folios as $f) {
+
+    if (in_array($f->fecha, $dias)) {
+        $key = array_search($f->fecha, $dias);
+    }
+    $i = $objPHPExcel->setActiveSheetIndex($key)->getHighestRow();
+    $i++;
+    $objPHPExcel->setActiveSheetIndex($key)
+            ->setCellValue('A' . $i . '', $f->pkSolicitud)
+            ->setCellValue('B' . $i . '', $f->nombreInstitucion)
+            ->setCellValue('C' . $i . '', $f->fecha)
+            ->setCellValue('D' . $i . '', $f->salidaEscuela)
+            ->setCellValue('E' . $i . '', $f->llegadaEvento)
+            ->setCellValue('F' . $i . '', $f->salidaEvento)
+            ->setCellValue('G' . $i . '', $f->llegadaEscuela)
+            ->setCellValue('H' . $i . '', $f->nivelEscolar)
+            ->setCellValue('I' . $i . '', $f->nombreDirector)
+            ->setCellValue('J' . $i . '', $f->telefonoInstitucion)
+            ->setCellValue('K' . $i . '', $f->nombreResponsable)
+            ->setCellValue('L' . $i . '', $f->telefonoResponsable)
+            ->setCellValue('M' . $i . '', $f->nombreSolicitante)
+            ->setCellValue('N' . $i . '', $f->telefonoSolicitante)
+            ->setCellValue('O' . $i . '', $f->alumnos)
+            ->setCellValue('P' . $i . '', $f->alumnas)
+            ->setCellValue('Q' . $i . '', $f->acompMuj)
+            ->setCellValue('R' . $i . '', $f->acompHom)
+            ->setCellValue('S' . $i . '', $f->descripcion)
+            ->setCellValue('T' . $i . '', $f->monto)
+            ->setCellValue('U' . $i . '', $f->fechaRegistro)
+            ->setCellValue('V' . $i . '', $f->nombres)
+            ->setCellValue('W' . $i . '', $f->domicilio)
+			->setCellValue('X' . $i . '', $f->referenciaDomicilio);
+
+    if ($f->estatus == 0) {
+        $objPHPExcel->setActiveSheetIndex($key)->setCellValue('Y' . $i . '', 'Cancelado');
+    }
+    if ($f->estatus == 1){
+        $objPHPExcel->setActiveSheetIndex($key)->setCellValue('Y' . $i . '','Solicitado');
+    }
+}
+
+$hoja = 0;
+foreach ($diasFeria as $d) {
+
+    for ($j = 0; $j < 25; $j++) {
+        $objPHPExcel->setActiveSheetIndex($hoja)->getColumnDimensionByColumn($j)->setAutoSize(true);
+    }
+
+
+    $objPHPExcel->setActiveSheetIndex($hoja)->getStyle('A2:Y2')->getFont()->setBold(true);
+    $objPHPExcel->setActiveSheetIndex($hoja)->setAutoFilter('A2:Y2');
+    $objPHPExcel->setActiveSheetIndex($hoja)->getStyleByColumnAndRow('A2:Y2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_JUSTIFY);
+    $hoja++;
+}
+
+$objPHPExcel->setActiveSheetIndex(0);
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="solicitudes.xls"');
+header('Cache-Control: max-age=0');
+
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+$objWriter->save('php://output');
+exit;
+?>

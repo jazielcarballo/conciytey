@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h1>Roles (Perfiles) del Sistema</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/roles/eliminar', 'post', 'class="form_lista"');
+View::partial('aplicacion/backend_header_action', FALSE, array('texto' => 'Crear Rol'));
+$dt = new DataTable($roles);
+/*$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));*/ //agregar funcionalidad
+$dt->addHeaders('','id', 'Rol', 'plantilla a usar', 'Estado', 'Editar', 'Eliminar');
+$dt->check('roles_id');
+$dt->addFields('id', 'rol', 'plantilla');
+$dt->imgLink('icon-eye-open|icon-eye-close',
+        'admin/roles/activar|admin/roles/desactivar', '', 'activo');
+$dt->imgLink('icon-edit', 'admin/roles/editar');
+$dt->imgLinkConfirm('icon-trash', 'admin/roles/eliminar', '', '¿Realmente desea Eliminar este rol?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>

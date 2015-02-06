@@ -1,0 +1,28 @@
+[Thu, 12 Sep 13 13:17:31 -0500][CRITICAL] exception 'KumbiaException' with message 'Cannot add or update a child row: a foreign key constraint fails (`concytey_transportes`.`ap_instituciones_has_solicitudes`, CONSTRAINT `fk_instituciones_has_solicitudes_instituciones` FOREIGN KEY (`instituciones_pkInstitucion`) REFERENCES `ap_instituciones_) al ejecutar <em>"INSERT INTO ap_instituciones_has_solicitudes (instituciones_pkInstitucion,solicitudes_pkSolicitud) VALUES ('1148','9')"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(191): DbMySQL->query('INSERT INTO ap_...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(1756): DbBase->insert('ap_institucione...', Array, Array)
+#2 C:\xampp\htdocs\feria13\default\app\models\ap_instituciones_has_solicitudes.php(11): KumbiaActiveRecord->save()
+#3 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes.php(54): ApInstitucionesHasSolicitudes->guardarRelacion('9', '1148')
+#4 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(128): ApSolicitudes->guardarSolicitud(Array, Array, Array)
+#5 [internal function]: SolicitudesController->crear()
+#6 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#7 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#8 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#9 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#11 {main}
+[Thu, 12 Sep 13 13:20:20 -0500][CRITICAL] exception 'KumbiaException' with message 'Cannot add or update a child row: a foreign key constraint fails (`concytey_transportes`.`ap_instituciones_has_solicitudes`, CONSTRAINT `fk_instituciones_has_solicitudes_instituciones` FOREIGN KEY (`instituciones_pkInstitucion`) REFERENCES `ap_instituciones_) al ejecutar <em>"INSERT INTO ap_instituciones_has_solicitudes (instituciones_pkInstitucion,solicitudes_pkSolicitud) VALUES ('1148','10')"</em>' in C:\xampp\htdocs\feria13\core\libs\db\adapters\mysql.php:169
+Stack trace:
+#0 C:\xampp\htdocs\feria13\core\libs\db\db_base.php(191): DbMySQL->query('INSERT INTO ap_...')
+#1 C:\xampp\htdocs\feria13\core\libs\kumbia_active_record\kumbia_active_record.php(1756): DbBase->insert('ap_institucione...', Array, Array)
+#2 C:\xampp\htdocs\feria13\default\app\models\ap_instituciones_has_solicitudes.php(11): KumbiaActiveRecord->save()
+#3 C:\xampp\htdocs\feria13\default\app\models\ap_solicitudes.php(54): ApInstitucionesHasSolicitudes->guardarRelacion('10', '1148')
+#4 C:\xampp\htdocs\feria13\default\app\controllers\solicitud\solicitudes_controller.php(128): ApSolicitudes->guardarSolicitud(Array, Array, Array)
+#5 [internal function]: SolicitudesController->crear()
+#6 C:\xampp\htdocs\feria13\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#7 C:\xampp\htdocs\feria13\core\kumbia\router.php(215): Router::_dispatch()
+#8 C:\xampp\htdocs\feria13\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#9 C:\xampp\htdocs\feria13\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\feria13\default\public\index.php(81): require('C:\xampp\htdocs...')
+#11 {main}

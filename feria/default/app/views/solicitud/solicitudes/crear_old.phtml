@@ -1,0 +1,836 @@
+
+
+
+
+
+
+<div class="page-header">
+    <h1> Crear solicitud de Transporte <strong><?php //echo $feria->nombre                                                                     ?></strong></h1>
+</div>
+
+
+
+
+<div id="mensajes_flash" > 
+
+    <?php View::content(); ?>
+</div>
+
+
+<?php echo Ajax::form('mensajes_flash', NULL, NULL, NULL, 'autocomplete="off"') ?>
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <fieldset><legend>Institución de procedencia:   <dl id="dt-list-1" class="pull-right" style="margin: 0px;">
+                    <dt><span style="font-size:12px;"><i class="icon-asterisk"></i>Campo requerido</span></dt>         
+                </dl></legend>
+
+
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Institución: </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.nombreInstitucion', 'class="span12" placeholder="Ejemplo: Escuela Secundaria No. 21"'); ?>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="span4">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Domicilio: </label>
+                        <div class="controls">
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-map-marker"></i> </span>                             
+                                <?php echo Form::text('ap_instituciones.domicilio', 'class="span12" placeholder=""'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4"> 
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Referencia del domicilio: </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.referenciaDomicilio', 'class="span12" placeholder=""'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid"> 
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Turno : </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.turno', 'class="span12" placeholder="Opcional"'); ?>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Nivel escolar : </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.nivelEscolar', 'class="span12" placeholder="Ejemplo: Primaria, Secundaria..."'); ?>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Municipio: </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.municipio', 'class="span12" placeholder="Ejemplo: Merida, Motul..."'); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Director: </label>
+                        <div class="controls">
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-user"></i> </span>                           
+                                <?php echo Form::text('ap_instituciones.nombreDirector', 'class="span12" placeholder="Opcional"'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Teléfono: </label>
+                        <div class="controls">
+
+
+
+                            <div class="input-prepend">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" id="institucion_tel">
+                                        Celular
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="ap_inst_tel" tipo="1">Celular</a></li> 
+                                        <li><a class="ap_inst_tel" tipo="-1">Teléfono</a></li> 
+                                    </ul>
+                                </div>
+                                <?php echo Form::text('ap_instituciones.telefonoInstitucion', 'class="span7 bfh-phone" data-format="ddd ddd-dddd" placeholder="ddd ddd-dddd"'); ?>
+                                <?php echo Form::hidden('ap_instituciones.tipoTelefono', NULL, 1); ?>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Correo: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <?php echo Form::email('ap_instituciones.emailDirector', 'class="span12" placeholder="Opcional"'); ?>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <?php echo Form::hidden('ap_instituciones.pkInstitucion'); ?>
+
+
+        </fieldset>
+        <fieldset> 	<legend>Datos de la solicitud: </legend>
+
+
+
+            <div class="row-fluid"> 
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Costo del camión: </label>
+                        <div class="controls">
+                            <?php
+                            echo Form::dbSelect('ap_solicitudes.apoyos_pkApoyo', 'descripcion', array('ap_apoyos', 'getApoyosFeria', $feria->pkFeria), '', 'class="span10"')
+                            ?>
+                            <!--<button data-toggle="modal" data-target="#myModal" type="button" id="nuevoApoyo" class="btn btn-success btn-mini" style="margin-top: -12px;"><i class="icon-plus"></i></button>-->
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Responsable: </label>
+                        <div class="controls">
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-user"></i> </span>                           
+                                <?php echo Form::text('ap_solicitudes.nombreResponsable', 'class="span12" placeholder=""'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Teléfono: </label>
+                        <div class="controls">
+                            <div class="input-prepend">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" id="solicitud_tel_res">
+                                        Celular
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="ap_res_tel" tipo="1">Celular</a></li> 
+                                        <li><a class="ap_res_tel" tipo="-1">Teléfono</a></li> 
+                                    </ul>
+                                </div>
+                                <?php echo Form::text('ap_solicitudes.telefonoResponsable', 'class="span10 bfh-phone" data-format="ddd ddd-dddd" placeholder="ddd ddd-dddd"'); ?>
+                                <?php echo Form::hidden('ap_solicitudes.tipoResponsableTelefono', NULL, 1) ?>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Correo: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <?php echo Form::email('ap_solicitudes.correoResponsable', 'class="span12" placeholder="Opcional"'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row-fluid"> 
+
+
+
+                <div class="span3 offset3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Solicitante: </label>
+                        <div class="controls">
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-user"></i> </span>                           
+                                <?php echo Form::text('ap_solicitudes.nombreSolicitante', 'class="span12" placeholder=""'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Teléfono: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" id="solicitud_tel_sol">
+                                        Celular
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="ap_sol_tel" tipo="1">Celular</a></li> 
+                                        <li><a class="ap_sol_tel" tipo="-1">Teléfono</a></li> 
+                                    </ul>
+                                </div>
+                                <?php echo Form::text('ap_solicitudes.telefonoSolicitante', 'class="span10  bfh-phone" data-format="ddd ddd-dddd" placeholder="ddd ddd-dddd"'); ?>
+                                <?php echo Form::hidden('ap_solicitudes.tipoSolicitanteTelefono', NULL, 1) ?>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Correo: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <?php echo Form::email('ap_solicitudes.correoSolicitante', 'class="span12" placeholder="Opcional"'); ?>          
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </fieldset>
+
+        <div class="clearfix"></div>
+        <fieldset> 	
+
+            <div>
+                <strong>Código de colores: </strong>
+                <em><?php echo Html::img('bus_reservado.png'); ?>-Reservado </em>
+                <em><?php echo Html::img('bus_ocupado.png'); ?>-Ocupado temporalmente </em>
+                <em><?php echo Html::img('bus_disponible.png'); ?>-Disponible </em>
+                <em><?php echo Html::img('bus_seleccionado.png'); ?>-Seleccionado</em>
+
+            </div>
+
+
+            <div id="accordion2" class="accordion">
+                <div class="accordion-group">
+
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Disponibilidad de camiones:
+
+
+
+
+
+
+                        </a>
+
+
+                    </div>
+
+                    <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+
+
+                        <table id="tabla_horarios" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" style=" min-width: 200px;">Horario</th>
+
+                                <tr>
+                                    <?php foreach ($dias as $e) : ?>
+                                        <th style="text-align:center;border-left:1px solid #DDD; min-width: 80px; ">
+                                            <a href="#" class="check_dias">
+                                                <?php
+                                                $dia = date("d", strtotime($e->fecha));
+
+                                                switch (date("w", strtotime($e->fecha))) {
+                                                    case 0: $diaNombre = "Domingo";
+                                                        break;
+                                                    case 1: $diaNombre = "Lunes";
+                                                        break;
+                                                    case 2: $diaNombre = "Martes";
+                                                        break;
+                                                    case 3: $diaNombre = "Miércoles";
+                                                        break;
+                                                    case 4: $diaNombre = "Jueves";
+                                                        break;
+                                                    case 5: $diaNombre = "Viernes";
+                                                        break;
+                                                    case 6: $diaNombre = "Sábado";
+                                                        break;
+                                                }
+                                                //    $day=$date.getdate();
+                                                echo $diaNombre . ' ' . $dia;
+                                                ?>
+                                            </a>
+                                        </th>
+                                    <?php endforeach ?>
+                                </tr>
+                            </thead>
+                            <?php if ($listHorarios) : ?>     
+                                <tbody>
+                                    <?php foreach ($listHorarios as $item) : ?>
+                                        <tr id="<?php echo intval(substr($item->salidaEscuela, 0, 2)); ?>">
+                                            <td>
+                                                <?php echo date("g:i A", strtotime($item->salidaEscuela)) ?>-<?php echo date("g:i A", strtotime($item->llegadaEscuela)) ?>
+                                            </td>
+
+
+
+                                            <?php foreach ($dias as $e) : ?>
+
+                                                <?php if (array_key_exists("{$e->pkDia}-{$item->pkHorario}", $diasHorario)): ?> 
+                                                    <td>
+                                                        <?php for ($i = 1; $i <= $item->numeroCamiones; $i++) : ?>
+
+                                                            <?php $clave = $i . $e->pkDia . $item->pkHorario; ?>
+                                                            <?php if (array_key_exists("{$clave}", $reservados)): ?>                                                                  
+                                                                <?php echo Html::img('bus_reservado.png', '', "pkid='$clave'"); ?>
+                                                            <?php else: ?>                                        
+                                                                <?php
+                                                                if (array_key_exists($clave, $ocupados)) {
+                                                                    echo Html::img('bus_ocupado.png', '', "pkid='$clave'");
+                                                                } else {
+                                                                    $pkHorarioDia = $diasHorario["{$e->pkDia}-{$item->pkHorario}"][0];
+
+                                                                    $fecha = Fecha::dateDMA($e->fecha);
+                                                                    $hora = Fecha::dateHMA($item->salidaEscuela);
+                                                                    echo Html::img('bus_disponible.png', '', "pkid='$clave' pkdia='$fecha' pkhora='$hora' pkHorarioDia='$pkHorarioDia'");
+                                                                }
+                                                                ?>                                               
+
+                                                            <?php endif; ?>
+
+                                                        <?php endfor ?>
+                                                    </td>
+                                                <?php else: ?>
+                                                    <td>                                      
+                                                        <?php echo "No hay camiones signados"; ?>
+                                                    </td>
+                                                <?php endif; ?>
+
+                                            <?php endforeach ?>
+
+
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            <?php else : // Si no hay items         ?>
+                                <tbody> 
+                                    <tr><td colspan="4"> <h2>No hay ningún registro</h2></td></tr>
+                                </tbody>
+                            <?php endif ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <?php echo Form::hidden('camiones.Numero'); ?>
+        </fieldset>
+
+        <fieldset> 	<legend>Camiones:</legend>
+
+            <div>
+               <h4> <strong>Nota: </strong>No se puede agregar mas de 40 personas por cada camión</h4>
+
+
+            </div>
+
+
+            <div id="Camiones">
+
+
+            </div>
+
+
+            <?php echo Form::hidden('apHorario.pkHorario', 'class="span12"') ?>
+
+        </fieldset>
+
+
+        <div class="form-actions">
+
+
+            <?php echo Form::submit("Guardar", 'class="btn btn-info"') ?>
+
+            <?php echo Form::close() ?>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <form id="crearApoyo" class="form-horizontal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Agregar apoyo</h3>
+        </div>
+        <div class="modal-body">
+
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Descripci&oacute;n</label>
+                <div class="controls">
+                    <input type="text" id="inputDescripcion" name="inputDescripcion" required="required" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Monto Apoyo</label>
+                <div class="controls">
+                    <input type="number" id="inputApoyo" name="inputApoyo" required="required">
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            <button class="btn btn-primary" type="submit">Agregar</button>
+        </div>
+    </form>
+
+</div>
+
+
+<?php //echo strtotime(date("H:i:s",strtotime('2013/09/30 14:00:00'))) ?>
+
+
+
+
+
+<?php
+echo Tag::js('helpers/bootstrap-formhelpers-phone.format');
+echo Tag::js('helpers/bootstrap-formhelpers-phone');
+?>
+
+
+
+
+<script>
+
+
+    $('#crearApoyo').submit(function(event) {
+
+
+
+
+        $.ajax({
+            url: "<?php echo PUBLIC_PATH ?>feria/apoyos/crearMonto",
+            type: "POST",
+            data: $(this).serializeArray(),
+            dataType: "html",
+            success: function(response) {
+
+                $('#ap_solicitudes_apoyos_pkApoyo').append(response);
+                $('#myModal').modal('hide')
+
+            }
+
+        }).done(function() {
+            return true
+        });
+
+        event.preventDefault();
+
+
+
+
+
+
+    });
+
+    $(".ap_inst_tel").click(function() {
+        tipo = $(this).text();
+        $('#ap_instituciones_tipoTelefono').val($(this).attr('tipo'));
+        $("#institucion_tel").html(tipo + '<span class="caret"></span>');
+    });
+
+
+    $(".ap_res_tel").click(function() {
+        tipo = $(this).text();
+        $('#ap_solicitudes_tipoResponsableTelefono').val($(this).attr('tipo'));
+        $("#solicitud_tel_res").html(tipo + '<span class="caret"></span>');
+    });
+
+
+    $(".ap_sol_tel").click(function() {
+        tipo = $(this).text();
+        $('#ap_solicitudes_tipoSolicitanteTelefono').val($(this).attr('tipo'));
+        $("#solicitud_tel_sol").html(tipo + '<span class="caret"></span>');
+    });
+
+
+
+
+
+
+    $("#ap_solicitudes_apoyos_pkApoyo").change(function() {
+        var str = "";
+        $("select option:selected").each(function() {
+            str += $(this).text() + " ";
+        });
+
+
+        var array = str.split("(");
+        var turno = "Otro";
+
+        if (array.length == 2) {
+            array = array[1].split(")");
+            turno = array[0];
+        }
+        else {
+
+        }
+
+
+
+
+
+        if (turno == 'Matutino') {
+            $("#tabla_horarios tbody tr").each(function() {
+
+                $("img[src$='bus_seleccionado.png']", this).trigger("click");
+
+                hora = $(this).attr('id');
+//1379444400 es el strtotime de las 3:00pm
+                //   alert(hora + "--" + 1379534400);
+
+
+                if (parseFloat(hora) <= 13.5) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
+
+            });
+        }
+        else
+        {
+            if (turno == 'Vespertino') {
+                $("#tabla_horarios tbody tr").each(function() {
+
+
+                    $("img[src$='bus_seleccionado.png']", this).trigger("click");
+                    hora = $(this).attr('id');
+
+//1379444400 es el strtotime de las 3:00pm
+
+                    if (parseFloat(hora) > 13.6) {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+
+                });
+            }
+            else {
+                $("#tabla_horarios tbody tr").each(function() {
+                    $(this).show();
+                });
+
+            }
+        }
+        /*$("#tabla_horarios tbody").each(function() {
+         $(this).find('tr').css('display','none');
+         });*/
+
+
+    }).change();
+
+
+
+    setInterval(function() {
+
+        $.ajax({
+            url: "<?php echo PUBLIC_PATH ?>solicitud/solicitudes/actualizaHorarios",
+            type: "POST",
+            data: {id: '1'},
+            dataType: "json",
+            success: function(response) {
+                $(".table tbody img").each(function(i) {
+                    var pkid = $(this).attr("pkid");
+                    var src = $(this).attr("src");
+                    var estado_aux = src.split('/');
+                    var estado = estado_aux[(estado_aux.length - 1)];
+                    var ocupado = false;
+                    $.each(response, function(i, item) {
+                        if (pkid == item.id) {
+                            estado = '' + item.src;
+                            ocupado = true;
+                            return false;
+                        }
+
+                    });
+                    if (ocupado)
+                        $(this).attr("src", "<?php echo PUBLIC_PATH ?>img/" + estado);
+                    else {
+
+                        if (estado == "bus_ocupado.png")
+                            $(this).attr("src", "<?php echo PUBLIC_PATH ?>img/bus_disponible.png");
+                        else
+                            $(this).attr("src", "<?php echo PUBLIC_PATH ?>img/" + estado);
+                    }
+                });
+            }
+        });
+    }, 2000);
+
+    $(window).on("beforeunload", function() {
+        $.ajax({
+            url: "<?php echo PUBLIC_PATH ?>solicitud/solicitudes/eliminarTemporal",
+            type: "POST",
+            async: false,
+            dataType: "json",
+            success: function(response) {
+
+            }
+
+        }).done(function() {
+            return true
+        })
+
+
+    });
+    $(document).ready(function() {
+
+
+//alert($("input[name*='ap_solicitudes_has_horarios']").val());
+
+
+
+        $('.accordion-body').collapse('show');
+        $("#ap_instituciones_nombreInstitucion").typeahead({
+            ajax: {
+                url: "<?php echo PUBLIC_PATH ?>instituciones/instituciones/getTodasNombre",
+                timeout: 400,
+                displayField: "nombreInstitucion",
+                valueField: 'pkInstitucion',
+                triggerLength: 5,
+                method: "post",
+                loadingClass: "loading-circle",
+            },
+            onSelect: displayResult,
+            items: 20
+        });
+        function displayResult(item) {
+            id = item.value;
+            $("input[name*='ap_instituciones']").val('');
+            $("input[name*='ap_instituciones']").addClass('loading-circle');
+            $.ajax({
+                url: "<?php echo PUBLIC_PATH ?>instituciones/instituciones/getInstitucion",
+                type: "POST",
+                data: {id: id},
+                dataType: "json",
+                success: function(response) {
+                    $.each(response, function(i, row) {
+
+                        $("#ap_instituciones_nivelEscolar").val(row['nivelEscolar']);
+                        $("#ap_instituciones_domicilio").val(row['domicilio']);
+                        $("#ap_instituciones_referenciaDomicilio").val(row['referenciaDomicilio']);
+                        $("#ap_instituciones_municipio").val(row['municipio']);
+
+                        if (row['telefonoInstitucion'] < 0) {
+                            $("#ap_instituciones_tipoTelefono").val(-1);
+                            $("#institucion_tel").html('Celular <span class="caret"></span>');
+                        }
+                        else {
+                            $("#ap_instituciones_tipoTelefono").val(1);
+                            $("#institucion_tel").html('Teléfono <span class="caret"></span>');
+                        }
+                        $("#ap_instituciones_telefonoInstitucion").val(row['telefonoInstitucion']);
+
+                        $("#ap_instituciones_nombreDirector").val(row['nombreDirector']);
+
+                        $("#ap_instituciones_emailDirector").val(row['emailDirector']);
+                        $("#ap_instituciones_turno").val(row['turno']);
+
+                        $("#ap_instituciones_pkInstitucion").val(row['pkInstitucion']);
+
+                    });
+                    $("input[name*='ap_instituciones']").removeClass('loading-circle');
+                }
+
+            });
+        }
+
+        $("#ap_instituciones_nombreInstitucion").keydown(function(event) {
+            if (event.which == 8) {
+
+                $("input[name*='ap_instituciones']").not(':first').val('');
+            }
+        });
+
+        var ocupado = new RegExp(/ocupado/i);
+        var disponible = new RegExp(/disponible/i);
+        var seleccionado = new RegExp(/seleccionado/i);
+        var reservado = new RegExp(/reservado/i);
+        $(".table tbody img").not("[src$='reservado.png']").click(function(e) {
+            if (ocupado.test(this.src)) {
+                alert("Elemento ocupado");
+                return false;
+            }
+
+            if (disponible.test(this.src)) {
+
+
+                var obj = this;
+                $.ajax({
+                    url: "<?php echo PUBLIC_PATH ?>solicitud/solicitudes/reservarCamion",
+                    type: "POST",
+                    data: {pkHorarioDia: $(this).attr('pkHorarioDia'), pkid: $(this).attr('pkid')},
+                    beforeSend: function() {
+                        obj.src = "<?php echo PUBLIC_PATH ?>img/spinner.gif";
+                    },
+                    success: function(response) {
+
+                        if (response == "reservado") {
+
+                            cadena = '<input  type="hidden" value="' + $(obj).attr('pkHorarioDia') + '" name="ap_solicitudes_has_horarios[I' + $(obj).attr('pkid') + ']">';
+                            cadena = cadena + '<div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones">Alumnos: </label><div class="controls"> <div class="input-prepend input-append span10"><span class="add-on"><i class="icon-male"></i> </span><input id="ap_solicitudes_has_horarios" class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[A' + $(obj).attr('pkid') + ']"></div></div></div></div>';
+                            cadena = cadena + '<div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones">Alumnas: </label><div class="controls"><div class="input-prepend input-append span10"><span class="add-on"><i class="icon-female"></i> </span><input id="ap_solicitudes_has_horarios" class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[O' + $(obj).attr('pkid') + ']"></div></div></div></div>';
+                            cadena = cadena + '<div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones"><a href="#" class="tpA"  title="Acompañante(s)">AC.</a> Mujere(s): </label><div class="controls"><div class="input-prepend input-append span10"><span class="add-on"><i class="icon-female"></i> </span><input class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[CM' + $(obj).attr('pkid') + ']"></div></div></div></div>';
+                            cadena = cadena + '<div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones"><a href="#" class="tpA" title="Acompañante(s)">AC.</a> Hombres(s): </label><div class="controls"><div class="input-prepend input-append span10"><span class="add-on"><i class="icon-male"></i> </span><input class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[CH' + $(obj).attr('pkid') + ']"></div></div></div></div>';
+                            cadena = cadena + '<input type="hidden" value="' + $(obj).attr('pkid') + '"  name="ap_solicitudes_has_horarios[ID' + $(obj).attr('pkid') + ']">';
+
+
+
+                            $("#Camiones").append('<div class="" id="' + $(obj).attr('pkid') + '"><div class="row-fluid"><div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones">Dia de salida: </label><div class="controls"><span class="span12 label label-large label-yellow arrowed-in">' + $(obj).attr('pkdia') + '</span></div></div></div><div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones">Hora de salida: </label><div class="controls"><span class="span12 label label-large label-yellow arrowed-in">' + $(obj).attr('pkhora') + '</span></div></div></div>' + cadena + '</div></div> ');
+                            /*   $(".tpA").tooltip();*/
+                            obj.src = "<?php echo PUBLIC_PATH ?>img/bus_seleccionado.png";
+                        }
+                        else {
+                            obj.src = "<?php echo PUBLIC_PATH ?>img/bus_ocupado.png";
+                            //   $("#" + response + "").remove();
+                        }
+
+
+
+                    }
+                });
+                return false;
+            }
+
+            if (seleccionado.test(this.src)) {
+
+                this.src = "<?php echo PUBLIC_PATH ?>img/bus_disponible.png";
+                $("#" + $(this).attr('pkid') + "").remove();
+                $.ajax({
+                    url: "<?php echo PUBLIC_PATH ?>solicitud/solicitudes/EliminarReservarCamion",
+                    type: "POST",
+                    data: {pkid: $(this).attr('pkid')},
+                    success: function(response) {
+
+                    }
+                });
+                return false;
+            }
+
+            if (reservado.test(this.src)) {
+                return false;
+            }
+        });
+    });
+
+
+
+
+
+
+</script>
+

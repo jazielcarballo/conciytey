@@ -1,0 +1,22 @@
+<div class="page-header">
+    <h1>Lista de Apoyos</h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div> 
+
+<?php View::partial('aplicacion/backend_header_action',FALSE, array('texto'=>'Crear','opciones'=>FALSE));
+
+$dt = new DataTable($listApoyos);
+$dt->addHeaders('id','Descripcion de Apoyo','Monto','Feria','Editar','Eliminar');
+$dt->addFields('pkApoyo','descripcion','monto','nombreFeria');
+$dt->imgLink('icon-edit', 'feria/apoyos/editar');
+$dt->imgLinkConfirm('icon-trash', 'feria/apoyos/eliminar', '', '¿Realmente desea Eliminar este apoyo?');
+echo $dt->render('class="table table-bordered table-striped"');
+
+
+?>
+
+
+
+

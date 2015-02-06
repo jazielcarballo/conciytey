@@ -1,0 +1,19 @@
+<?php if (Config::get('config.application.breadcrumb')): ?>
+    <div id="breadcrumbs">
+
+
+        <?php
+        Load::lib('breadcrumb');
+        $Crumb = new Breadcrumb();
+
+        $Crumb->class_ul = 'breadcrumb';
+        $Crumb->class_separator = '';
+        $Crumb->separator = '<span class="divider"><i class="icon-angle-right"></i></span>';
+
+        $Crumb->addCrumb(0, _('<i class="icon-home"></i>'), 'inicio/inicio/index');
+        $Crumb->addCrumb(1, Router::get('controller'), Router::get('module') . '/' . Router::get('controller'));
+        $Crumb->addCrumb(2, Router::get('action'), Router::get('module') . '/' . Router::get('controller') . '/' . Router::get('action'));
+        echo $Crumb->display();
+        ?>
+    </div>
+<?php endif; ?>

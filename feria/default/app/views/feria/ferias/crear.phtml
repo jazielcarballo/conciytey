@@ -1,0 +1,82 @@
+
+
+<div class="page-header">
+    <h1>
+        Crear Feria
+
+    </h1>
+</div>
+<div class="row-fluid">
+
+    <div class="span12" >
+        <div id="res-form-ajax"><?php View::content(); ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal'); ?>
+
+        <?php echo Form::hidden('apferia.pkFeria'); ?>
+        <div class="control-group">
+            <label class="control-label" for="ap_feria_nombre">Nombre de Feria: </label>
+            <div class="controls">
+                <?php echo Form::text('apferia.nombre', 'placeholder="Nombre de la feria"'); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="ap_feria_tematica">Tematica : </label>
+            <div class="controls">
+                <?php echo Form::text('apferia.tematica', 'placeholder="Tematica de la Feria"'); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="apferia_inicio">Fecha Inicio : </label>
+            <div class="controls">
+                <?php echo Form::text('apferia.fechaInicio', 'placeholder="dd/mm/aaaa" readonly'); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="apferia_fin">Fecha Fin : </label>
+            <div class="controls">
+                <?php echo Form::text('apferia.fechaFin', 'placeholder="dd/mm/aaaa" readonly'); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="apferia_fin">Activo : </label>
+            <div class="controls">
+                <?php echo Form::select('apferia.activo', array('1' => 'Si', '0' => 'No')) ?>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-actions">
+            <?php echo Form::submit('Guardar Datos', 'class="btn btn-small  btn-primary"'); ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-small"'); ?>
+
+
+        </div>
+        <?php echo Form::close() ?>
+    </div>
+</div>
+
+<?php
+echo Tag::js('helpers/bootstrap-datepicker');
+echo Tag::js('helpers/locales/bootstrap-datepicker.es');
+?>
+
+<script>
+
+    $('#apferia_fechaInicio').datepicker({
+        language: 'es',
+        format: 'dd/mm/yyyy',
+        endDate: '31/12/y',
+        autoclose: true
+    });
+    $('#apferia_fechaFin').datepicker({
+        language: 'es',
+        format: 'dd/mm/yyyy',
+        endDate: '31/12/y',
+        autoclose: true
+    });
+
+
+
+</script>

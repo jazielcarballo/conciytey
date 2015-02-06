@@ -1,0 +1,123 @@
+<?php
+
+Load::lib("phpExcel/Classes/PHPExcel");
+
+$objPHPExcel = new PHPExcel();
+
+
+$objPHPExcel = new PHPExcel();
+
+// Set document properties
+
+$objPHPExcel->getProperties()->setCreator('SISTEMA DE TRASPORTES')
+        ->setLastModifiedBy('SISTEMA DE TRASPORTES')
+        ->setTitle('LISTADO DE SOLICITUDES')
+        ->setSubject('LISTA')
+        ->setDescription('CONTIENE TODAS LAS SOLICITUDES')
+        ->setKeywords('SOLICITUDES')
+        ->setCategory('RESULTADO DE CONSULTA');
+
+// Genera los titulos de las columnas del excel
+$i = 2;
+$objPHPExcel->setActiveSheetIndex(0)
+        ->setCellValue('A' . $i . '', "FOLIO")
+        ->setCellValue('B' . $i . '', "NOMBRE DE LA INSTITUCION")
+		->setCellValue('C' . $i . '', "DIRECCION DE LA ESCUELA")
+		->setCellValue('D' . $i . '', "REFERENCIA DE LA ESCUELA")
+        ->setCellValue('E' . $i . '', "FECHA DE VISITA")
+        ->setCellValue('F' . $i . '', "SALIDA ESCUELA")
+        ->setCellValue('G' . $i . '', "LLEDADA AL EVENTO")
+        ->setCellValue('H' . $i . '', "SALIDA DEL EVENTO")
+        ->setCellValue('I' . $i . '', "LLEGADA ESCUELA")
+        ->setCellValue('J' . $i . '', "NIVEL ESCOLAR")
+        ->setCellValue('K' . $i . '', "DIRECTOR")
+        ->setCellValue('L' . $i . '', "TELEFONO DE LA INSITUTUCION")
+        ->setCellValue('M' . $i . '', "RESPONSABLE DEL CAMION")
+        ->setCellValue('N' . $i . '', "TELEFONO")
+        ->setCellValue('O' . $i . '', "SOLICITANTE")
+        ->setCellValue('P' . $i . '', "TELEFONO")
+        ->setCellValue('Q' . $i . '', "#ALUMNOS")
+        ->setCellValue('R' . $i . '', "#ALUMNAS")
+        ->setCellValue('S' . $i . '', "#AC. MUJERES")
+        ->setCellValue('T' . $i . '', "#AC. HOMBRES")
+        ->setCellValue('U' . $i . '', "APOYO")
+        ->setCellValue('V' . $i . '', "MONTO")
+        ->setCellValue('W' . $i . '', "FECHA SOLICITUD")
+        ->setCellValue('X' . $i . '', "REALIZADO POR")
+        ->setCellValue('Y' . $i . '', "ESTATUS DE LA SOLICITUD");
+
+
+$i = 3;
+foreach ($folios as $f) {
+    $objPHPExcel->setActiveSheetIndex(0)
+            ->setCellValue('A' . $i . '', $f->pkSolicitud)
+            ->setCellValue('B' . $i . '', $f->nombreInstitucion)
+            ->setCellValue('C' . $i . '', $f->domicilio)
+			->setCellValue('D' . $i . '', $f->referenciaDomicilio)
+            ->setCellValue('E' . $i . '', $f->fecha)
+            ->setCellValue('F' . $i . '', $f->salidaEscuela)
+            ->setCellValue('G' . $i . '', $f->llegadaEvento)
+            ->setCellValue('H' . $i . '', $f->salidaEvento)
+            ->setCellValue('I' . $i . '', $f->llegadaEscuela)
+            ->setCellValue('J' . $i . '', $f->nivelEscolar)
+            ->setCellValue('K' . $i . '', $f->nombreDirector)
+            ->setCellValue('L' . $i . '', $f->telefonoInstitucion)
+            ->setCellValue('M' . $i . '', $f->nombreResponsable)
+            ->setCellValue('N' . $i . '', $f->telefonoResponsable)
+            ->setCellValue('O' . $i . '', $f->nombreSolicitante)
+            ->setCellValue('P' . $i . '', $f->telefonoSolicitante)
+            ->setCellValue('Q' . $i . '', $f->alumnos)
+            ->setCellValue('R' . $i . '', $f->alumnas)
+            ->setCellValue('S' . $i . '', $f->acompMuj)
+            ->setCellValue('T' . $i . '', $f->acompHom)
+            ->setCellValue('U' . $i . '', $f->descripcion)
+            ->setCellValue('V' . $i . '', $f->monto)
+            ->setCellValue('W' . $i . '', $f->fechaRegistro)
+            ->setCellValue('X' . $i . '', $f->nombres);
+
+    if ($f->estatus == 0) {
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('Y' . $i . '', 'Cancelado');
+    }
+    if ($f->estatus == 1) {
+        $objPHPExcel->setActiveSheetIndex(0)->setCellValue('Y' . $i . '', 'Solicitado');
+    }
+
+    $i++;
+}
+
+
+
+//formato a los encabezados de los titulos
+for ($j = 0; $j < 25; $j++) {
+    $objPHPExcel->getActiveSheet()->getColumnDimensionByColumn($j)->setAutoSize(true);
+
+    for ($h = 3; $h <= $i; $h++) {
+        $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($j, $h)->getAlignment()->setHorizontal("left");
+    }
+}
+
+$objPHPExcel->getActiveSheet()->getStyle('A2:Y2')->getFont()->setBold(true);
+$objPHPExcel->getActiveSheet()->setAutoFilter('A2:Y2');
+$objPHPExcel->getActiveSheet()->getStyleByColumnAndRow('A2:Y2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_JUSTIFY);
+
+
+
+
+
+
+$objPHPExcel->getActiveSheet()->setTitle('Solicitudes');
+
+
+// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+$objPHPExcel->setActiveSheetIndex(0);
+
+
+// Redirect output to a client’s web browser (Excel2007)
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="solicitudes.xlsx"');
+header('Cache-Control: max-age=0');
+
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+$objWriter->save('php://output');
+exit;
+?>

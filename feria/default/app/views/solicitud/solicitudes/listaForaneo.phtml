@@ -1,0 +1,38 @@
+<!--<div class="page-header">
+   <h1><?php //echo $feria->nombre ?></h1>
+</div>-->
+<div class="page-header">
+    <h1>Lista de Solicitudes Foraneas</h1>
+</div>
+
+<div class="page-header">
+    <h4>Activas</h4>
+</div>
+
+
+<div id="mensajes_flash" >        
+    <?php View::content(); ?>
+</div> 
+<?php
+$dt = new DataTable($Listasolicitudes);
+$dt->addHeaders('Fecha de Solicitud', 'Folio', 'Nombre de la Institucion', 'Realizado por', 'Imprimir', 'Cancelar');
+$dt->addFields('fechaRegistro', 'pkSolicitud', 'nombreInstitucion', 'nombreUsuario');
+$dt->imgLink('icon-print', 'solicitud/solicitudes/imprimirForaneo', NULL, NULL, 'TARGET="_blank"');
+$dt->imgLinkConfirm('icon-ban-circle', 'solicitud/solicitudes/cancelarForaneo', '', '¿Realmente desea Cancelar esta solicitud?');
+echo $dt->render('class="table table-bordered table-striped"');
+?>
+
+<div class="page-header">
+    <h4>Canceladas</h4>
+</div>
+
+
+<?php
+$dt = new DataTable($ListasolicitudesCancelar);
+$dt->addHeaders('Fecha de Solicitud', 'Folio', 'Nombre de la Institucion', 'Realizado por', 'Imprimir');
+$dt->addFields('fechaRegistro', 'pkSolicitud', 'nombreInstitucion', 'nombreUsuario');
+$dt->imgLink('icon-print', 'solicitud/solicitudes/imprimirForaneo', NULL, NULL, 'TARGET="_blank"');
+echo $dt->render('class="table table-bordered table-striped"');
+?>
+
+

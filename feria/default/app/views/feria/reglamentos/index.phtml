@@ -1,0 +1,22 @@
+<div class="page-header">
+    <h1>Lista de Reglamentos</h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div> 
+
+<?php View::partial('aplicacion/backend_header_action',FALSE, array('texto'=>'Crear','opciones'=>FALSE));
+
+$dt = new DataTable($listReglamentos);
+$dt->addHeaders('id','Posicion','Descripcion','Feria','Editar','Eliminar');
+$dt->addFields('pkReglamento','posicion','descripcion','nombreFeria');
+$dt->imgLink('icon-edit', 'feria/reglamentos/editar');
+$dt->imgLinkConfirm('icon-trash', 'feria/reglamentos/eliminar', '', '¿Realmente desea Eliminar este reglamento?');
+echo $dt->render('class="table table-bordered table-striped"');
+
+
+?>
+
+
+
+

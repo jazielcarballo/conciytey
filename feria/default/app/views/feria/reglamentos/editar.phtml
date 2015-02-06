@@ -1,0 +1,42 @@
+<div class="page-header">
+    <h1>
+        Edición del Reglamento
+        
+    </h1>
+</div>
+<div class="row-fluid">
+
+    <div class="span12">
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php echo Form::hidden('apReglamento.pkReglamento') ?>
+      
+      <div class="control-group">
+            <label class="control-label" for="ap_reglamento">Posicion </label>
+            <div class="controls">
+                <?php echo Form::text('apReglamento.posicion'); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="ap_reglamento">Descripcion : </label>
+            <div class="controls">
+                <?php echo Form::text('apReglamento.descripcion'); ?>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="ap_apoyo">Feria : </label>
+            <div class="controls">
+             <?php echo Form::dbSelect('apReglamento.ferias_pkFeria', 'nombre', array('ap_ferias', 'find', 'pkFeria'), 'Ninguno') ?>
+            </div>
+        </div>
+
+                <div class="form-actions">
+            <?php echo Form::submit('Guardar Datos', 'class="btn btn-small btn-primary"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-small"') ?>
+                    </div>
+        <?php echo Form::close() ?>
+    </div>
+</div>
+

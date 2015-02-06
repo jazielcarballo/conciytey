@@ -1,0 +1,74 @@
+<div class="page-header">
+    <h1>
+        Edición del Usuario
+        <small><?php echo (strtoupper($usuario->login)); ?></small>
+    </h1>
+</div>
+<div class="row-fluid">
+    <div class="span4">
+        <?php View::partial('aplicacion/usuario/usuarios') ?>
+    </div>
+    <div class="span8">
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php echo Form::hidden('usuario.id') ?>
+      
+        <div class="control-group">
+                <label class="control-label" for="usuario_login"> Nombre de Usuario (Login)* :  </label>
+                <div class="controls">
+                <?php echo Form::text('usuario.login') ?>
+                    </div>
+                </div>
+        
+        
+        <div class="control-group">
+                <label class="control-label" for="usuario_nombres">Nombre Completo* : </label>
+                <div class="controls">
+                <?php echo Form::text('usuario.nombres') ?>
+                    </div>
+                </div>
+         <div class="control-group">
+            <label class="control-label" for="usuario_clave">Contrase&ntilde;a* : </label>
+            <div class="controls">
+                <?php echo Form::pass('usuario.clave') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="usuario_clave2">Volver a escribir Contrase&ntilde;a* : </label>
+            <div class="controls">
+                <?php echo Form::pass('usuario.clave2') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="usuario_email">Correo Electronico* : </label>
+            <div class="controls">
+                <?php echo Form::text('usuario.email') ?>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="usuario_roles_id">Roles del Usuario* : </label><br/><br/>
+            <div class="controls">
+                <?php //echo Form::dbSelect('usuario.roles_id', 'rol','') ?>
+                <ul class="unstyled">
+                    <?php foreach ($roles as $e): ?>
+                    <li><label><?php echo Form::check("rolesUser.$e->id", $e->id), '','<span class="">'.h($e->rol).'</span>' ?></label></li>
+                    <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="usuario_activo">Activo : </label>
+                <div class="controls">
+                <?php echo Form::select('usuario.activo', array('1' => 'Si', '0' => 'No')) ?>
+                    </div>
+                </div>
+                <div class="form-actions">
+            <?php echo Form::submit('Guardar Datos', 'class="btn btn-small btn-primary"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-small"') ?>
+                    </div>
+        <?php echo Form::close() ?>
+    </div>
+</div>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="David Canche">
+        
+        <?php Html::headLinkResource('bus.png', "rel='shortcut icon',type='image/png'"); ?>
+        <?php echo Html::includeHeadLinks(); ?>
+        
+        
+        <?php Tag::css('bootstrap/bootstrap.min') ?>
+        <?php Tag::css('bootstrap/bootstrap-responsive') ?>
+        <?php Tag::css('iconos/font-awesome.min') ?>
+        <?php Tag::css('aplicacion/estilos') ?>
+        <?php Tag::css('aplicacion/ace.min') ?>
+        <?php Tag::css('aplicacion/ace-responsive.min') ?>
+        <?php Tag::css('aplicacion/ace-skins.min') ?>
+
+
+        <?php echo Html::includeCss() ?>
+        <title><?php echo Config::get('config.application.name') ?></title>
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <?php View::partial('aplicacion/frontend_header'); ?>
+
+        </header>
+
+        <section>
+
+            <div id="main-container" class="container-fluid">
+                <a id="menu-toggler" href="#">
+                    <span></span>
+                </a>
+                <div id="sidebar">
+                    <?php View::partial('aplicacion/frontend_sidebar', FALSE, array('login' => 'active')); ?>
+                </div>
+
+                <div id="main-content" class="clearfix">
+
+
+                   
+
+                    <div id="page-content" class="clearfix">
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div id="form_logueo" class="modal" style="position:relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                                    <div class="modal-header">
+                                        <h3>Iniciar Sesi&oacute;n</h3>                        
+                                    </div>
+                                    <div class="modal-body">
+                                        <?php View::content() ?>
+                                        <?php echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+                                        <div class="control-group">
+                                            <label class="control-label" for="login">Usuario </label>
+                                            <div class="controls">
+                                                <?php echo Form::text('login') ?>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="clave">Contrase&ntilde;a </label>
+                                            <div class="controls">
+                                                <?php echo Form::pass('clave'/* ,'autocomplete="off"' */) ?>
+                                            </div>
+                                        </div>
+                                        <?php if (Config::get('config.application.recordar_sesion')): ?>
+                                            <div class="controls">
+                                                <label class="checkbox">
+                                                    <?php echo Form::check('recordar', 1, NULL, MyAuth::cookiesActivas()) ?> No cerrar Sesión
+                                                </label>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <?php if (Config::get('config.application.registro')): ?>
+                                            <?php echo Html::link('registro', 'Registrate') ?>
+                                        <?php endif; ?>
+                                        <?php echo Form::submit('Ingresar', 'class="btn btn-small btn-primary btn-large"') ?>
+                                    </div>
+                                    <?php echo Form::close() ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                           
+                        </p>        
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Le javascript
+            ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <?php echo Tag::js('jquery/jquery-2.0.2'); ?>   
+        <?php echo Tag::js('bootstrap/bootstrap.min'); ?>       
+        <?php echo Tag::js('aplicacion/funciones'); ?>
+        <?php echo Tag::js('holder'); ?>
+    </body>
+</html>
+
+

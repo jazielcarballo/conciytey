@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="David Canche">
+
+        
+
+        <?php Html::headLinkResource('bus.png', "rel='shortcut icon',type='image/png'"); ?>
+
+        <?php echo Html::includeHeadLinks(); ?>
+
+
+        <?php Tag::css('bootstrap/bootstrap.min') ?>
+        <?php Tag::css('bootstrap/bootstrap-responsive') ?>
+        <?php Tag::css('iconos/font-awesome.min') ?>
+        <?php Tag::css('aplicacion/estilos') ?>
+        <?php Tag::css('aplicacion/ace.min') ?>
+        <?php Tag::css('aplicacion/ace-responsive.min') ?>
+        <?php Tag::css('aplicacion/ace-skins.min') ?>
+        <?php echo Html::includeCss() ?>
+         <title><?php echo Config::get('config.application.name') ?></title>
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <?php View::partial('aplicacion/frontend_header'); ?>
+
+        </header>
+
+        <section>
+
+
+
+            <div id="main-container" class="container-fluid">
+                <a id="menu-toggler" href="#">
+                    <span></span>
+                </a>
+                <div id="sidebar">
+                    <?php View::partial('aplicacion/frontend_sidebar'); ?>
+                </div>
+
+                <div id="main-content" class="clearfix">
+
+
+
+
+                    <div id="page-content" class="clearfix">
+                        <?php View::content(); ?>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Le javascript
+            ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <?php echo Tag::js('jquery/jquery-2.0.2'); ?>   
+        <?php echo Tag::js('bootstrap/bootstrap.min'); ?>       
+        <?php echo Tag::js('aplicacion/funciones'); ?>
+        <?php echo Tag::js('holder'); ?>
+    </body>
+</html>

@@ -1,0 +1,593 @@
+
+
+
+
+
+
+<div class="page-header">
+    <h1> Crear solicitud de Transporte Foraneo<strong><?php //echo $feria->nombre                                                                                ?></strong></h1>
+</div>
+
+
+
+
+<div id="mensajes_flash" > 
+
+    <?php View::content(); ?>
+</div>
+
+
+<?php echo Ajax::form('mensajes_flash', NULL, NULL, NULL, 'autocomplete="off"') ?>
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <fieldset><legend>Institución de procedencia:   <dl id="dt-list-1" class="pull-right" style="margin: 0px;">
+                    <dt><span style="font-size:12px;"><i class="icon-asterisk"></i>Campo requerido</span></dt>         
+                </dl></legend>
+
+
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Institución: </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.nombreInstitucion', 'class="span12" placeholder="Ejemplo: Escuela Secundaria No. 21"'); ?>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="span4">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Domicilio: </label>
+                        <div class="controls">
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-map-marker"></i> </span>
+                                <?php echo Form::text('ap_instituciones.domicilio', 'class="span12" placeholder=""'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4"> 
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Referencia del domicilio: </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.referenciaDomicilio', 'class="span12" placeholder=""'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid"> 
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Turno : </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.turno', 'class="span12" placeholder="Opcional"'); ?>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Nivel escolar : </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.nivelEscolar', 'class="span12" placeholder="Ejemplo: Primaria, Secundaria..."'); ?>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Municipio: </label>
+                        <div class="controls">
+                            <?php echo Form::text('ap_instituciones.municipio', 'class="span12" placeholder="Ejemplo: Merida, Motul..."'); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Director: </label>
+                        <div class="controls">
+                            <div class="input-prepend span10">
+                                <span class="add-on"><i class="icon-user"></i></span>
+                                <?php echo Form::text('ap_instituciones.nombreDirector', 'class="span12" placeholder="Opcional"'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Teléfono: </label>
+                        <div class="controls">
+
+
+
+                            <div class="input-prepend ">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" id="institucion_tel">
+                                        Celular
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="ap_inst_tel" tipo="1">Celular</a></li> 
+                                        <li><a class="ap_inst_tel" tipo="-1">Teléfono</a></li> 
+                                    </ul>
+                                </div>
+                                <?php echo Form::text('ap_instituciones.telefonoInstitucion', 'class="span7 bfh-phone" data-format="ddd ddd-dddd" placeholder="ddd ddd-dddd"'); ?>
+                                <?php echo Form::hidden('ap_instituciones.tipoTelefono', NULL, 1); ?>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_instituciones">Correo: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <?php echo Form::email('ap_instituciones.emailDirector', 'class="span12" placeholder="Opcional"'); ?>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <?php echo Form::hidden('ap_instituciones.pkInstitucion'); ?>
+
+
+        </fieldset>
+        <fieldset> 	<legend>Datos de la solicitud: </legend>
+
+
+
+            <div class="row-fluid"> 
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Costo del camión: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend input-append span10">
+                                <span class="add-on"><i class="icon-dollar"></i></span>
+                                <?php
+                                echo Form::number('ap_solicitudes.apoyo', 'class="span12 "')
+                                ?>
+                                <span class="add-on">.00</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Responsable: </label>
+                        <div class="controls">
+                            <div class="input-prepend span10">
+                                <span class="add-on"><i class="icon-user"></i></span>
+                                <?php echo Form::text('ap_solicitudes.nombreResponsable', 'class="span12" placeholder=""'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Teléfono: </label>
+                        <div class="controls">
+                            <div class="input-prepend ">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" id="solicitud_tel_res">
+                                        Celular
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="ap_res_tel" tipo="1">Celular</a></li> 
+                                        <li><a class="ap_res_tel" tipo="-1">Teléfono</a></li> 
+                                    </ul>
+                                </div>
+                                <?php echo Form::text('ap_solicitudes.telefonoResponsable', 'class="span10 bfh-phone" data-format="ddd ddd-dddd" placeholder="ddd ddd-dddd"'); ?>
+                                <?php echo Form::hidden('ap_solicitudes.tipoResponsableTelefono', NULL, 1) ?>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Correo: </label>
+                        <div class="controls">
+                            <div class="input-prepend span10">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+
+                                <?php echo Form::email('ap_solicitudes.correoResponsable', 'class="span12" placeholder="Opcional"'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row-fluid"> 
+
+
+
+                <div class="span3 offset3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Solicitante: </label>
+                        <div class="controls">
+                            <div class="input-prepend span10">
+                                <span class="add-on"><i class="icon-user"></i></span>                          
+                                <?php echo Form::text('ap_solicitudes.nombreSolicitante', 'class="span12" placeholder=""'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Teléfono: </label>
+                        <div class="controls">
+
+                            <div class="input-prepend">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown" id="solicitud_tel_sol">
+                                        Celular
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="ap_sol_tel" tipo="1">Celular</a></li> 
+                                        <li><a class="ap_sol_tel" tipo="-1">Teléfono</a></li> 
+                                    </ul>
+                                </div>
+                                <?php echo Form::text('ap_solicitudes.telefonoSolicitante', 'class="span10  bfh-phone" data-format="ddd ddd-dddd" placeholder="ddd ddd-dddd"'); ?>
+                                <?php echo Form::hidden('ap_solicitudes.tipoSolicitanteTelefono', NULL, 1) ?>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="span3">
+                    <div class="control-group">
+                        <label class="control-label" for="ap_solicitudes">Correo: </label>
+                        <div class="controls">
+                            <div class="input-prepend span10">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <?php echo Form::email('ap_solicitudes.correoSolicitante', 'class="span12" placeholder="Opcional"'); ?>          
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </fieldset>
+
+        <div class="clearfix"></div>
+
+
+        <div>
+            <h4> <strong>Nota: </strong>No se puede agregar mas de 40 personas por cada camión</h4>
+
+
+        </div>
+
+
+
+
+
+
+        </fieldset>
+
+        <fieldset> 	<legend>Camiones: <button type="button" id="nuevoCamion" class="btn btn-success btn-small" style="margin-top: -12px;"><i class="icon-plus"></i></button></legend>
+
+
+            <div id="camiones">
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="form-actions">
+
+
+                <?php echo Form::submit("Guardar", 'class="btn btn-info"') ?>
+
+                <?php echo Form::close() ?>
+
+            </div>
+
+
+
+    </div>
+
+</div>
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <form id="crearApoyo" class="form-horizontal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Agregar apoyo</h3>
+        </div>
+        <div class="modal-body">
+
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Descripci&oacute;n</label>
+                <div class="controls">
+                    <input type="text" id="inputDescripcion" name="inputDescripcion" required="required" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Monto Apoyo</label>
+                <div class="controls">
+                    <input type="number" id="inputApoyo" name="inputApoyo" required="required">
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            <button class="btn btn-primary" type="submit">Agregar</button>
+        </div>
+    </form>
+
+</div>
+
+
+<?php // echo strtotime(date("H:i:s", strtotime('2013/09/30 14:00:00'))) ?>
+
+
+
+
+
+<?php
+echo Tag::js('helpers/bootstrap-formhelpers-phone.format');
+echo Tag::js('helpers/bootstrap-formhelpers-phone');
+
+echo Tag::js('helpers/bootstrap-datetimepicker.min');
+echo Tag::js('helpers/locales/bootstrap-datetimepicker.es');
+?>
+
+
+<script>
+
+    $("#nuevoCamion").click(function() {
+
+        cadena = "";
+        cadena = cadena + '<div class="span2"><div class="control-group"><label class="control-label" for="ap_instituciones">Fecha: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-calendar"></i></span><input class="span12 datepickF" placeholder="" type="text" name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones"><i class="icon-hand-right"></i>Escuela: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-time"></i></span><input  class="span12 datepick" placeholder="" type="text"   name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones"><i class="icon-hand-down"></i>Evento: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-time"></i></span><input  class="span12 datepick" placeholder="" type="text"    name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones"><i class="icon-hand-left"></i>Evento: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-time"></i></span><input  class="span12 datepick" placeholder="" type="text"  name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones"><i class="icon-hand-down"></i>Escuela: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-time"></i></span><input  class="span12 datepick" placeholder="" type="text"  name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones">Alumnos: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-male"></i></span><input id="ap_solicitudes_has_horarios" class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones">Alumnas: </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-female"></i></span><input id="ap_solicitudes_has_horarios" class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones">Mujere(s): </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-female"></i></span><input class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+        cadena = cadena + '<div class="span1"><div class="control-group"><label class="control-label" for="ap_instituciones">Hombres(s): </label><div class="controls"><div class="input-prepend span10"><span class="add-on"><i class="icon-male"></i></span><input class="span12" placeholder="" type="number" name="ap_solicitudes_has_horarios[]"></div></div></div></div>';
+
+
+
+
+        $("#camiones").append('<div class=""><div class="row-fluid">' + cadena + '</div></div> ');
+
+
+
+        var todayDate = new Date();
+        $('.datepick').datetimepicker({
+            language: 'es',
+            todayBtn: 0,
+            pickerPosition: 'top-right',
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            forceParse: 0,
+            showMeridian: 1,
+            minView: 0,
+            maxView: 1,
+            keyboardNavigation: 0,
+            initialDate: new Date(),
+            startDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 0, 0),
+            endDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 23, 0),
+            format: 'HH:ii P'
+        });
+        $('.datepickF').datetimepicker({
+            language: 'es',
+            todayBtn: 0,
+            pickerPosition: 'top-right',
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 3,
+            forceParse: 0,
+            showMeridian: 1,
+            minView: 2,
+            maxView: 3,
+            keyboardNavigation: 0,
+            initialDate: new Date(),
+            startDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 0, 0),
+            //  endDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 23, 0),
+            format: 'dd/mm/yyyy'
+        });
+    });
+
+
+
+
+
+    $('#crearApoyo').submit(function(event) {
+
+
+
+
+        $.ajax({
+            url: "<?php echo PUBLIC_PATH ?>feria/apoyos/crearMonto",
+            type: "POST",
+            data: $(this).serializeArray(),
+            dataType: "html",
+            success: function(response) {
+
+                $('#ap_solicitudes_apoyos_pkApoyo').append(response);
+                $('#myModal').modal('hide')
+
+            }
+
+        }).done(function() {
+            return true
+        });
+
+        event.preventDefault();
+
+
+
+
+
+
+    });
+
+    $(".ap_inst_tel").click(function() {
+        tipo = $(this).text();
+        $('#ap_instituciones_tipoTelefono').val($(this).attr('tipo'));
+        $("#institucion_tel").html(tipo + '<span class="caret"></span>');
+    });
+
+
+    $(".ap_res_tel").click(function() {
+        tipo = $(this).text();
+        $('#ap_solicitudes_tipoResponsableTelefono').val($(this).attr('tipo'));
+        $("#solicitud_tel_res").html(tipo + '<span class="caret"></span>');
+    });
+
+
+    $(".ap_sol_tel").click(function() {
+        tipo = $(this).text();
+        $('#ap_solicitudes_tipoSolicitanteTelefono').val($(this).attr('tipo'));
+        $("#solicitud_tel_sol").html(tipo + '<span class="caret"></span>');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    $(document).ready(function() {
+
+
+
+
+        $('.accordion-body').collapse('show');
+        $("#ap_instituciones_nombreInstitucion").typeahead({
+            ajax: {
+                url: "<?php echo PUBLIC_PATH ?>instituciones/instituciones/getTodasNombre",
+                timeout: 400,
+                displayField: "nombreInstitucion",
+                valueField: 'pkInstitucion',
+                triggerLength: 5,
+                method: "post",
+                loadingClass: "loading-circle",
+            },
+            onSelect: displayResult,
+            items: 20
+        });
+        function displayResult(item) {
+            id = item.value;
+            $("input[name*='ap_instituciones']").val('');
+            $("input[name*='ap_instituciones']").addClass('loading-circle');
+            $.ajax({
+                url: "<?php echo PUBLIC_PATH ?>instituciones/instituciones/getInstitucion",
+                type: "POST",
+                data: {id: id},
+                dataType: "json",
+                success: function(response) {
+                    $.each(response, function(i, row) {
+
+                        $("#ap_instituciones_nivelEscolar").val(row['nivelEscolar']);
+                        $("#ap_instituciones_domicilio").val(row['domicilio']);
+                        $("#ap_instituciones_referenciaDomicilio").val(row['referenciaDomicilio']);
+                        $("#ap_instituciones_municipio").val(row['municipio']);
+
+                        if (row['telefonoInstitucion'] < 0) {
+                            $("#ap_instituciones_tipoTelefono").val(-1);
+                            $("#institucion_tel").html('Celular <span class="caret"></span>');
+                        }
+                        else {
+                            $("#ap_instituciones_tipoTelefono").val(1);
+                            $("#institucion_tel").html('Teléfono <span class="caret"></span>');
+                        }
+                        $("#ap_instituciones_telefonoInstitucion").val(row['telefonoInstitucion']);
+
+                        $("#ap_instituciones_nombreDirector").val(row['nombreDirector']);
+
+                        $("#ap_instituciones_emailDirector").val(row['emailDirector']);
+                        $("#ap_instituciones_turno").val(row['turno']);
+
+                        $("#ap_instituciones_pkInstitucion").val(row['pkInstitucion']);
+
+                    });
+                    $("input[name*='ap_instituciones']").removeClass('loading-circle');
+                }
+
+            });
+        }
+
+        $("#ap_instituciones_nombreInstitucion").keydown(function(event) {
+            if (event.which == 8) {
+
+                $("input[name*='ap_instituciones']").not(':first').val('');
+            }
+        });
+
+
+
+    });
+
+
+
+
+
+
+</script>
+

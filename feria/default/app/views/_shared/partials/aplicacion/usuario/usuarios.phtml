@@ -1,0 +1,23 @@
+<?php $res = Load::model('usuarios')->find('limit: 8', 'order: id DESC'); ?>
+<?php $actual = Form::getFieldValue('usuario.id') //vriable con el id del registro que se edita ?>
+
+<ul class="nav nav-tabs nav-stacked backend_menu_lateral">
+    <li class="<?php if (!$actual) echo 'active'; ?>">
+        <?php echo Html::linkAction("crear", 'Crear Usuario','class="btn btn-primary"'); ?>
+    </li>
+    <?php foreach ($res as $e): ?>
+        <li class=" <?php if ($e->id == $actual) echo 'well active'; ?>">
+            <?php $content ='<span class="pull-left">'.Html::gravatar($e->email,'gravatar',35).'</span>'; ?>
+            <?php $content .='<h4>'. h(strtoupper($e->login)).'</h4>'; ?>
+            <?php $content .= "<p>" . h($e->nombres) . "</p>" ?>
+            
+             <?php $content= '<div class="media">' .$content. '</div>' ?>
+            
+            <?php echo Html::linkAction("editar/$e->id", "$content<div style=\"clear: both\"></div>"); ?>
+        </li>
+    <?php endforeach; ?>
+    <li>
+        <?php echo Html::linkAction("", 'Ver Todos...'); ?>
+    </li>
+</ul>
+

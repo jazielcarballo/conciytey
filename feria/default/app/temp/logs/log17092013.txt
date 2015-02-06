@@ -1,0 +1,11 @@
+[Tue, 17 Sep 13 19:48:59 -0500][CRITICAL] exception 'KumbiaException' with message 'No existe el método 'guardarEdicion' en ActiveRecord::ApFerias' in C:\xampp\htdocs\transporte_2013\core\libs\kumbia_active_record\kumbia_active_record.php:542
+Stack trace:
+#0 C:\xampp\htdocs\transporte_2013\default\app\controllers\feria\ferias_controller.php(86): KumbiaActiveRecord->__call('guardarEdicion', Array)
+#1 C:\xampp\htdocs\transporte_2013\default\app\controllers\feria\ferias_controller.php(86): ApFerias->guardarEdicion(Array)
+#2 [internal function]: FeriasController->editar('2')
+#3 C:\xampp\htdocs\transporte_2013\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(FeriasController), Array)
+#4 C:\xampp\htdocs\transporte_2013\core\kumbia\router.php(215): Router::_dispatch()
+#5 C:\xampp\htdocs\transporte_2013\core\kumbia\bootstrap.php(145): Router::execute('/feria/ferias/e...')
+#6 C:\xampp\htdocs\transporte_2013\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\transporte_2013\default\public\index.php(81): require('C:\xampp\htdocs...')
+#8 {main}

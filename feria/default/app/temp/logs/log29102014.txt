@@ -1,0 +1,26 @@
+[Wed, 29 Oct 14 07:17:28 -0600][CRITICAL] exception 'KumbiaException' with message 'La página 2 no existe en el páginador' in /home/conciytey/public_html/feria/core/libs/kumbia_active_record/behaviors/paginate.php:130
+Stack trace:
+#0 [internal function]: Paginator::paginate(Object(ApSolicitudes), 'page: 2', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#1 /home/conciytey/public_html/feria/core/libs/kumbia_active_record/kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#2 /home/conciytey/public_html/feria/default/app/models/ap_solicitudes.php(204): KumbiaActiveRecord->paginate('page: 2', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#3 /home/conciytey/public_html/feria/default/app/controllers/solicitud/solicitudes_controller.php(26): ApSolicitudes->getSolicitudesCanceladas('2')
+#4 [internal function]: SolicitudesController->index('2')
+#5 /home/conciytey/public_html/feria/core/kumbia/router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#6 /home/conciytey/public_html/feria/core/kumbia/router.php(215): Router::_dispatch()
+#7 /home/conciytey/public_html/feria/core/kumbia/bootstrap.php(145): Router::execute('/solicitud/soli...')
+#8 /home/conciytey/public_html/feria/default/app/libs/bootstrap.php(21): require_once('/home/conciytey...')
+#9 /home/conciytey/public_html/feria/default/public/index.php(81): require('/home/conciytey...')
+#10 {main}
+[Wed, 29 Oct 14 07:20:47 -0600][CRITICAL] exception 'KumbiaException' with message 'La página 2 no existe en el páginador' in /home/conciytey/public_html/feria/core/libs/kumbia_active_record/behaviors/paginate.php:130
+Stack trace:
+#0 [internal function]: Paginator::paginate(Object(ApSolicitudes), 'page: 2', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#1 /home/conciytey/public_html/feria/core/libs/kumbia_active_record/kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#2 /home/conciytey/public_html/feria/default/app/models/ap_solicitudes.php(204): KumbiaActiveRecord->paginate('page: 2', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#3 /home/conciytey/public_html/feria/default/app/controllers/solicitud/solicitudes_controller.php(26): ApSolicitudes->getSolicitudesCanceladas('2')
+#4 [internal function]: SolicitudesController->index('2')
+#5 /home/conciytey/public_html/feria/core/kumbia/router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#6 /home/conciytey/public_html/feria/core/kumbia/router.php(215): Router::_dispatch()
+#7 /home/conciytey/public_html/feria/core/kumbia/bootstrap.php(145): Router::execute('/solicitud/soli...')
+#8 /home/conciytey/public_html/feria/default/app/libs/bootstrap.php(21): require_once('/home/conciytey...')
+#9 /home/conciytey/public_html/feria/default/public/index.php(81): require('/home/conciytey...')
+#10 {main}

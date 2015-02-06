@@ -1,0 +1,67 @@
+/* 
+    Document   : estilos
+    Created on : 3/07/2013, 11:30:37 AM
+    Author     : David
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url('../../font/OpenSans-Light.ttf');
+
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'),  url('../../font/OpenSans-Regular.ttf');
+
+} 
+
+
+.home_breadcrumbs{
+    font-size: 20px;
+    margin-left: 10px;
+
+}
+
+.fechas_datos{
+    padding: 0px 5px 0px 5px;
+    font-size: 10px;
+    min-width: 60px;
+    display: block;
+
+
+}
+
+.fechas_inp{
+    padding: 3px 10px 3px 10px;
+    font-size: 10px;
+    min-width: 50px;
+    display: block; 
+}
+
+.fechas_inp input{
+    margin: 0px;
+
+}
+
+.repo-language{
+    float: right;
+    font-style: italic;
+}
+
+.repo-name{
+    font-weight: bold;
+
+
+}
+
+.repo-description{
+    min-width: 185px;
+    font-size: 14px;    
+}
+

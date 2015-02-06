@@ -1,0 +1,22 @@
+<div class="page-header">
+    <h1>Menus del Sistema</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/menu/eliminar', 'post', 'class="form_lista"');
+View::partial('aplicacion/backend_header_action',FALSE,array('texto' => 'Crear Menú'));
+$dt = new DataTable($menus);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Texto a Mostrar', 'Menu Padre');
+$dt->addHeaders('Recurso al que Accede', 'URL', 'Posición');
+$dt->addHeaders('Estado', 'Editar', 'Eliminar');
+$dt->check('menu_id');
+$dt->addFields('id', 'nombre', 'padre', 'recurso', 'url', 'posicion');
+$dt->imgLink('icon-eye-open|icon-eye-close',
+        'admin/menu/activar|admin/menu/desactivar', '', 'activo');
+$dt->imgLink('icon-edit', 'admin/menu/editar');
+$dt->imgLinkConfirm('icon-trash', 'admin/menu/eliminar', '',
+        '¿Realmente desea Eliminar el menu ?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>

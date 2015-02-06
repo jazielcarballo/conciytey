@@ -1,0 +1,211 @@
+<div class="page-header">
+    <h1>Administrador de Horarios <strong><?php echo $feria->nombre ?></strong></h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div>
+<?php $ids_dias = array(); ?>
+
+
+<div class="row-fluid">
+
+    <div class="span12">
+        <?php echo Form::open('feria/ferias/guardarHora/' . $feria->pkFeria, 'post', 'autocomplete="on"') ?>
+        <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php echo Form::hidden('apHorario.pkHorario') ?>
+
+        <div class="control-group">
+            <label class="span2" for="apHorario">Salida Escuela: 
+                <div class="input-append bootstrap-timepicker">
+                    <?php echo Form::text('apHorario.salidaEscuela', 'class="span10" '); ?>
+                    <span class="add-on"><i class="icon-time"></i></span>
+                </div>
+            </label>
+
+
+            <label class="span2 control-label " for="apHorario">Llegada Evento: 
+                <div class="input-append bootstrap-timepicker">
+                    <?php echo Form::text('apHorario.llegadaEvento', 'class="span10" '); ?>
+                    <span class="add-on"><i class="icon-time"></i></span>
+                </div>
+            </label>
+
+
+            <label class=" span2" for="apHorario">Salida Evento: 
+                <div class="input-append bootstrap-timepicker">
+                    <?php echo Form::text('apHorario.salidaEvento', 'class="span10" '); ?>
+                    <span class="add-on"><i class="icon-time"></i></span>
+                </div>
+            </label>
+
+
+
+            <label class="span2" for="apHorario">Llegada Escuela: 
+                <div class="input-append bootstrap-timepicker">
+                    <?php echo Form::text('apHorario.llegadaEscuela', 'class="span10" '); ?>
+                    <span class="add-on"><i class="icon-time"></i></span>
+                </div>
+            </label>
+
+            <label class=" span2" for="apHorario">#Camiones: 
+
+                <?php echo Form::text('apHorario.numeroCamiones', 'class="span12"'); ?></label>
+            <?php echo Form::hidden('apHorario.ferias_pkFeria', NULL, $feria->pkFeria); ?>
+
+
+            <label class="span2" for="apHorario"><br>
+                <?php echo Form::submit('Guardar Hora', 'class="btn btn-small btn-primary"') ?>
+
+            </label>
+        </div>
+        <?php echo Form::close() ?>
+    </div>
+</div>
+
+
+
+
+<?php echo Form::open('feria/ferias/editarHorario/' . $feria->pkFeria) ?>
+<table id="tabla_privilegios" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th rowspan="2" style="width: 200px">Salida Escuela</th>
+            <th rowspan="2" style="width: 200px">Llegada Evento</th>
+            <th rowspan="2" style="width: 200px">Salida Evento</th>
+            <th rowspan="2" style="width: 200px">Llegada Escuela</th>
+
+            <th rowspan="2" style="width: 300px">Camiones</th>
+            <th rowspan="2" style="width: 300px">Eliminar</th>
+            <th colspan="<?php echo count($dias) ?>" style="text-align: center; border-bottom:1px solid #DDD;"><?php echo Form::submit('Guardar Cambios', 'class="btn btn-small btn-primary"') ?></th>
+        </tr>
+        <tr>
+            <?php foreach ($dias as $e) : ?>
+                <th style="text-align: center;border-left:1px solid #DDD;">
+                    <a href="#" id="check_dia_<?php echo ($e->fecha) ?>" class="check_dias">
+                        <?php echo ($e->fecha) ?>
+                    </a>
+                </th>
+            <?php endforeach ?>
+        </tr>
+    </thead>
+    <?php if ($listHorarios) : ?>     
+        <tbody>
+            <?php foreach ($listHorarios as $item) : ?>
+                <tr>
+                    <td><?php echo date("h:i A",strtotime($item->salidaEscuela))?></td>
+                    <td><?php echo date("h:i A",strtotime($item->llegadaEvento)) ?></td>
+                    <td><?php echo date("h:i A",strtotime($item->salidaEvento)) ?></td>
+                    <td><?php echo date("h:i A",strtotime($item->llegadaEscuela)) ?></td>
+                    <td><?php echo $item->numeroCamiones ?></td>
+                    <td>
+                        <a class = "js-confirm btn btn-mini btn btn-danger" title = "¿Realmente desea Eliminar Este Apoyo?" href = "<?php echo PUBLIC_PATH.'/feria/ferias/eliminarHorario/'. $item->pkHorario ?>/<?php echo $feria->pkFeria ?>">
+                            <i class = "icon-trash"></i>
+                        </a>
+                    </td>
+
+
+                    <?php foreach ($dias as $e) : ?>
+
+                        <?php if (array_key_exists("{$e->pkDia}-{$item->pkHorario}", $diasArray)) : ?>
+                            <?php $ids_dias[] = $diasArray["{$e->pkDia}-{$item->pkHorario}"] ?>
+                            <td class="check_rol_<?php echo($e->pkDia); ?>">
+                                <?php echo Form::check("priv.{$e->pkDia}_{$item->pkHorario}", "{$e->pkDia}/{$item->pkHorario}", NULL, true) ?>
+                            </td>
+                        <?php else: ?>
+                            <td class="check_rol_<?php echo($e->pkDia); ?>">
+                                <?php echo Form::check("priv.{$e->pkDia}_{$item->pkHorario}", "{$e->pkDia}/{$item->pkHorario}") ?>
+                            </td>
+                        <?php endif; ?>
+                    <?php endforeach ?>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    <?php else : // Si no hay items   ?>
+        <tbody> 
+            <tr><td colspan="4"> <h2>No hay ningún registro</h2></td></tr>
+        </tbody>
+    <?php endif ?>
+</table>
+
+<?php echo Form::hidden('horarios_dias', NULL, join(',', $ids_dias)); ?>
+
+<?php echo Form::close() ?>
+
+
+<?php
+echo Tag::js('helpers/bootstrap-datetimepicker.min');
+echo Tag::js('helpers/locales/bootstrap-datetimepicker.es');
+?>
+
+
+<script>
+
+    var todayDate = new Date();
+    $('#apHorario_salidaEscuela').datetimepicker({
+        language: 'es',
+        todayBtn: 0,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        forceParse: 0,
+        showMeridian: 1,
+        minView: 0,
+        maxView: 1,
+        keyboardNavigation: 0,
+        initialDate: new Date(),
+        startDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 0, 0),
+        endDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 23, 0),
+        format: 'HH:ii P'
+    });
+    $('#apHorario_llegadaEvento').datetimepicker({
+         language: 'es',
+        todayBtn: 0,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        forceParse: 0,
+        showMeridian: 1,
+        minView: 0,
+        maxView: 1,
+        keyboardNavigation: 0,
+        initialDate: new Date(),
+        startDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 0, 0),
+        endDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 23, 0),
+        format: 'HH:ii P'
+    });
+    $('#apHorario_salidaEvento').datetimepicker({
+         language: 'es',
+        todayBtn: 0,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        forceParse: 0,
+        showMeridian: 1,
+        minView: 0,
+        maxView: 1,
+        keyboardNavigation: 0,
+        initialDate: new Date(),
+        startDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 0, 0),
+        endDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 23, 0),
+        format: 'HH:ii P'
+    });
+    $('#apHorario_llegadaEscuela').datetimepicker({
+        language: 'es',
+        todayBtn: 0,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        forceParse: 0,
+        showMeridian: 1,
+        minView: 0,
+        maxView: 1,
+        keyboardNavigation: 0,
+        initialDate: new Date(),
+        startDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 0, 0),
+        endDate: new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 23, 0),
+        format: 'HH:ii P'
+    });
+
+
+
+</script>

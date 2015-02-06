@@ -1,0 +1,50 @@
+
+
+<?php View::content() ?>
+
+<div class="row-fluid">
+<div class="span12">
+
+    <h3 class="header smaller lighter red">Bienvenido al Sistema de Trasporte del CONCIYTEY</h3>
+
+    <div class="timeline-container">
+        <div class="timeline-label">
+            <span class="label label-primary arrowed-in-right label-large">
+                <b><?php echo date("Y") ?></b>
+            </span>
+        </div>
+        <div class="timeline-items">
+            <?php foreach ($ferias as $e) : ?>
+                <div class="timeline-item clearfix ">
+
+                    <div class="timeline-info">
+                        <i class="timeline-indicator icon-star btn btn-warning no-hover green"></i>
+                        <span class="label label-info"><?php if ($e->activo) {
+                echo "Activo";
+            } else {
+                echo "Inactivo";
+            } ?></span>
+                    </div>
+
+                    <div class="widget-box transparent">
+
+                        <div class="well">
+                            <h4 class="green smaller lighter"><?php
+                           echo "Del ". Fecha::dateMD($e->fechaInicio)." al ".Fecha::dateMD($e->fechaFin);
+                                ?></h4>
+                            <span class="label label-inverse arrowed-in "> Nombre de Feria:</span><span class="label label-success"><?php echo ($e->nombre) ?></span>
+                            <br>
+                            <span class="label label-inverse arrowed-in">Tematica:</span><span class="label label-success"><?php echo ($e->tematica) ?></span>
+                        </div>
+
+                    </div>
+                </div>
+<?php endforeach ?>
+        </div>
+    </div>
+
+</div>
+
+
+
+</div>

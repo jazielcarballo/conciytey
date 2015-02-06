@@ -1,0 +1,13 @@
+[Mon, 11 Nov 13 13:31:08 -0600][CRITICAL] exception 'KumbiaException' with message 'La página 2 no existe en el páginador' in C:\xampp\htdocs\transporte_2013\core\libs\kumbia_active_record\behaviors\paginate.php:130
+Stack trace:
+#0 [internal function]: Paginator::paginate(Object(ApSolicitudes), 'page: 2', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#1 C:\xampp\htdocs\transporte_2013\core\libs\kumbia_active_record\kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#2 C:\xampp\htdocs\transporte_2013\default\app\models\ap_solicitudes.php(204): KumbiaActiveRecord->paginate('page: 2', 'columns: ap_sol...', 'join: LEFT JOIN...', 'per_page: 30', 'order: fechaReg...', 'conditions: F.a...')
+#3 C:\xampp\htdocs\transporte_2013\default\app\controllers\solicitud\solicitudes_controller.php(26): ApSolicitudes->getSolicitudesCanceladas('2')
+#4 [internal function]: SolicitudesController->index('2')
+#5 C:\xampp\htdocs\transporte_2013\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(SolicitudesController), Array)
+#6 C:\xampp\htdocs\transporte_2013\core\kumbia\router.php(215): Router::_dispatch()
+#7 C:\xampp\htdocs\transporte_2013\core\kumbia\bootstrap.php(145): Router::execute('/solicitud/soli...')
+#8 C:\xampp\htdocs\transporte_2013\default\app\libs\bootstrap.php(21): require_once('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\transporte_2013\default\public\index.php(81): require('C:\xampp\htdocs...')
+#10 {main}

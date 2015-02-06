@@ -1,0 +1,291 @@
+<?php
+
+function formatPhone($num) {
+    $num = preg_replace('/[^0-9]/', '', $num);
+    $len = strlen($num);
+
+    if($len == 7) $num = preg_replace('/([0-9]{2})([0-9]{2})([0-9]{3})/', '$1 $2 $3', $num);
+    elseif($len == 8) $num = preg_replace('/([0-9]{3})([0-9]{2})([0-9]{3})/', '$1 - $2 $3', $num);
+    elseif($len == 9) $num = preg_replace('/([0-9]{3})([0-9]{3})([0-9]{4})/', '$1 - $2 $3', $num);
+    elseif($len == 10) $num = preg_replace('/([0-9]{3})([0-9]{3})([0-9]{4})/', '($1) $2-$3', $num);
+
+    return $num;
+}
+
+// Include the main TCPDF library (search for installation path).
+Load::lib('tcpdf/tcpdf');
+// create new PDF document
+
+$width = 215.9;
+$height = 279.4;
+$pagelayout = array($width, $height);
+$pdf = new TCPDF('P', 'mm', $pagelayout, true, 'UTF-8', false);
+
+
+
+// set default header data
+$pdf->SetHeaderData('', '', '', '', array(255, 255, 255), array(255, 255, 255));
+$pdf->setFooterData(array(255, 255, 255), array(255, 255, 255));
+
+// set header and footer fonts
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+
+//$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+// set default monospaced font
+//$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+// set margins
+$pdf->SetMargins(20, 0, 13);
+$pdf->SetHeaderMargin(0);
+$pdf->SetFooterMargin(17);
+
+// set auto page breaks
+$pdf->SetAutoPageBreak(TRUE, 0);
+
+// set image scale factor
+$pdf->setImageScale(5.5);
+
+
+
+// ---------------------------------------------------------
+// set default font subsetting mode
+//$pdf->setFontSubsetting(true);
+// Set font
+// dejavusans is a UTF-8 Unicode font, if you only need to
+// print standard ASCII chars, you can use core fonts like
+// helvetica or times to reduce file size.
+
+$pdf->AddPage();
+$pdf->Image(K_PATH_IMAGES . 'feriaCyT_2013_vacio.jpg', 0, 0, 215.9, 279.4, 'JPEG', '', 'M', false, 0, '', false, false, 0, true);
+
+//$pdf->Ln(35);
+$lettra = $pdf->addTTFfont(APP_PATH . '/libs/phpExcel/fuentes/OpenSans-Regular.ttf', 'Open', '', 32);
+
+//$lettra = "times";
+
+$border = 0;
+
+/* F.nombre, F.tematica */
+
+$pdf->SetXY(25, 36);
+$pdf->SetFont($lettra, '', 15, '', false);
+$pdf->SetTextColor(50, 53, 54);
+$pdf->Cell(0, 0, 'Solicitud de transporte para la', 0, 1, 'L', 0, '', 0);
+$pdf->SetXY(25, 43);
+$pdf->SetFont($lettra, '', 15, '', false);
+$pdf->SetTextColor(50, 53, 54);
+$pdf->Cell(0, 0, $feria->nombre, 0, 1, 'L', 0, '', 0);
+$pdf->SetXY(25, 50);
+$pdf->SetFont($lettra, '', 12, '', false);
+$pdf->SetTextColor(50, 53, 54);
+$pdf->Cell(0, 0, '"' . $feria->tematica . '"', 0, 1, 'L', 0, '', 0);
+
+$pdf->SetXY(158, 36);
+$pdf->SetFont($lettra, '', 23, '', false);
+$pdf->SetTextColor(50, 53, 54);
+$pdf->Cell(0, 0, 'Folio: ' . $solicitud->pkSolicitud . '', 0, 1, 'L', 0, '', 0);
+
+$pdf->SetFont($lettra, '', 9, '', false);
+$pdf->SetTextColor(101, 102, 101);
+$pdf->SetXY(120, 46);
+$pdf->Cell(75, 0, 'Creado el ' . Fecha::dateDMA($solicitud->fechaRegistro) . '', $border, 0, 'R', 0, '', 0);
+$pdf->SetFont($lettra, '', 9, '', false);
+$pdf->SetTextColor(101, 102, 101);
+$pdf->SetXY(120, 51);
+$pdf->Cell(75, 0, 'por ' . $solicitud->nombreUsuario . '', $border, 0, 'R', 0, '', 0);
+
+$pdf->SetFont($lettra, 'I', 9, '', false);
+$pdf->SetTextColor(205, 34, 43);
+$pdf->SetXY(23, 72);
+$texto = $solicitud->nombreInstitucion . ' (' . $solicitud->nivelEscolar . ' - ' . $solicitud->turno . ')';
+$t = wordwrap($texto, 45);
+$texto = explode("\n", $t);
+for($i=0; $i<count($texto); $i++){
+	$pdf->SetX(23);
+	$pdf->Cell(0, 4.8, $texto[$i], 0, 1, 'L', 0, '', 0);
+}
+//$pdf->MultiCell(85, 45, $t, 0, 'L', 0, 1, '', '', true);
+//$pdf->MultiCell(75, 5, ' ' . $solicitud->nombreSolicitante . ' ', 0, 'C', 0, 0, '', '', true);
+
+$pdf->SetTextColor(205, 34, 43);
+$pdf->SetXY(23, 82.5);
+$texto = $solicitud->domicilio . ' (' . $solicitud->municipio . ')';
+$t = wordwrap($texto, 50,'\n',true);
+$texto = explode("\n", $t);
+for($i=0; $i<count($texto); $i++){
+	$pdf->SetX(23);
+	$pdf->Cell(0, 4.8, $texto[$i], 0, 1, 'L', 0, '', 0);
+}
+//$pdf->Cell(0, 0, '' . $solicitud->domicilio . ' ' . $solicitud->municipio, 0, 0, 'L', 0, '', 0);
+//$pdf->MultiCell(85, 45, '' . $solicitud->domicilio . ' (' . $solicitud->municipio . ')', 0, 'L', 0, 1, '', '', true);
+
+$pdf->SetTextColor(101, 102, 102);
+
+$pdf->SetXY(23, 92.5);
+$pdf->Cell(0, 0, 'Director: ' . $solicitud->nombreDirector . '', 0, 0, 'L', 0, '', 0);
+
+$pdf->SetXY(23, 97.5);
+$pdf->Cell(0, 0, 'Correo: ' . $solicitud->emailDirector . '', 0, 0, 'L', 0, '', 0);
+
+
+$pdf->SetXY(23, 102.5);
+if ($solicitud->telefonoInstitucion < 0) {
+    $pdf->Cell(0, 0, 'Telefono: ' . formatPhone(abs($solicitud->telefonoInstitucion)) . '', 0, 0, 'L', 0, '', 0);
+} else {
+    $pdf->Cell(0, 0, 'Celular: ' . formatPhone(abs($solicitud->telefonoInstitucion)) . '', 0, 0, 'L', 0, '', 0);
+}
+
+$pdf->SetXY(111, 72.5);
+$pdf->Cell(0, 0, 'Nombre: ' . $solicitud->nombreSolicitante . '', 0, 0, 'L', 0, '', 0);
+
+$pdf->SetXY(111, 77.5);
+if ($solicitud->telefonoSolicitante < 0) {
+    $pdf->Cell(0, 0, 'Telefono: ' . formatPhone(abs($solicitud->telefonoSolicitante)) . '', 0, 0, 'L', 0, '', 0);
+} else {
+    $pdf->Cell(0, 0, 'Celular: ' . formatPhone(abs($solicitud->telefonoSolicitante)) . '', 0, 0, 'L', 0, '', 0);
+}
+
+$pdf->SetXY(111, 82.5);
+$pdf->Cell(0, 0, 'Correo: ' . $solicitud->emailSolicitante . '', 0, 0, 'L', 0, '', 0);
+
+
+$pdf->SetXY(111, 87.5);
+$pdf->Cell(0, 0, 'Responsable: ' . $solicitud->nombreResponsable . '', 0, 0, 'L', 0, '', 0);
+
+$pdf->SetXY(111, 92.5);
+if ($solicitud->telefonoResponsable < 0) {
+    $pdf->Cell(0, 0, 'Telefono: ' . formatPhone(abs($solicitud->telefonoResponsable)) . '', 0, 0, 'L', 0, '', 0);
+} else {
+    $pdf->Cell(0, 0, 'Celular: ' . formatPhone(abs($solicitud->telefonoResponsable)) . '', 0, 0, 'L', 0, '', 0);
+}
+$pdf->SetXY(111, 97.5);
+$pdf->Cell(0, 0, 'Correo: ' . $solicitud->emailReponsable. '', 0, 0, 'L', 0, '', 0);
+
+
+$cantidad = 0;
+$mas = 132;
+$pdf->SetFont($lettra, 'B', 9, '', false);
+
+
+foreach ($solicitudHorarios as $e) {
+
+    //$cantidad++;
+
+    $pdf->SetXY(28, $mas);
+    $pdf->Cell(0, 0, '1', 0, 0, 'L', 0, '', 0);
+
+    $pdf->SetXY(39, $mas);
+    $pdf->Cell(0, 0, Fecha::dateDM($e->fecha), 0, 0, 'L', 0, '', 0);
+
+    $pdf->SetXY(65, $mas);
+    $pdf->Cell(0, 0, Fecha::dateHMPM($e->salidaEscuela), 0, 0, 'L', 0, '', 0);
+
+    $pdf->SetXY(87, $mas);
+    $pdf->Cell(0, 0, Fecha::dateHMPM($e->llegadaEvento), 0, 0, 'L', 0, '', 0);
+
+    $pdf->SetXY(110, $mas);
+    $pdf->Cell(0, 0, Fecha::dateHMPM($e->salidaEvento), 0, 0, 'L', 0, '', 0);
+
+    $pdf->SetXY(130, $mas);
+    $pdf->Cell(0, 0, Fecha::dateHMPM($e->llegadaEscuela), 0, 0, 'L', 0, '', 0);
+
+    $pdf->SetXY(150, $mas);
+    $pdf->Cell(0, 0, 'H:' . $e->alumnos . ' M:' . $e->alumnas . '', 0, 0, 'L', 0, '', 0);
+
+
+
+
+    $pdf->SetXY(175, $mas);
+    $pdf->Cell(0, 0, 'H:' . $e->acompMuj . ' M:' . $e->acompHom . '', 0, 0, 'L', 0, '', 0);
+
+
+
+    $mas = $mas + 12;
+   $cantidad = $cantidad + (int) $e->apoyo;
+}
+
+$pdf->SetFont($lettra, 'I', 12, '', false);
+$pdf->SetTextColor(101, 102, 102);
+$pdf->SetXY(28, 201);
+$pdf->MultiCell(120, 5, $solicitud->referenciaDomicilio, 1, 'L', 0, 0, '', '', true);
+
+$pdf->SetTextColor(101, 102, 102);
+$pdf->SetXY(165, 203.5);
+$pdf->Cell(30, 0, '$ ' . number_format($cantidad, 2, '.', ',') . '', 0, 0, 'R', 0, '', 0);
+
+
+$pdf->SetFont($lettra, 'I', 7, '', false);
+$pdf->SetXY(155, 265);
+$pdf->Cell(0, 0, 'impreso el dia ' . Fecha::dateDMA(date("d-m-Y", time())) . '', 0, 0, 'L', 0, '', 0);
+
+
+$pdf->AddPage();
+
+$pdf->SetTextColor(0, 0, 0);
+$pdf->SetXY(25, 15);
+$pdf->SetFont($lettra, '', 23, '', false);
+
+$pdf->Cell(0, 0, 'Reglamento:', 0, 1, 'L', 0, '', 0);
+
+
+$j = 1;
+$ss = 35;
+$pdf->SetFont($lettra, 'I', 12.5, '', false);
+
+$pdf->SetXY(20, $ss);
+foreach ($reglamento as $e) {
+
+    $pdf->MultiCell(0, 4, $j . '.-' . $e->descripcion . ' ', 0, 'L', 0, 1, '', '', true);
+    $pdf->Ln(2);
+
+    $j++;
+}
+
+
+
+$pdf->SetXY(15, 235);
+$pdf->Line(15, 235, 90, 235);
+$pdf->MultiCell(75, 2, ' ' . $solicitud->nombreUsuario . ' ', 0, 'C', 0, 0, '', '', true);
+
+
+$pdf->SetXY(125, 235);
+$pdf->Line(125, 235, 200, 235);
+$pdf->MultiCell(75, 5, ' ' . $solicitud->nombreSolicitante . ' ', 0, 'C', 0, 0, '', '', true);
+
+
+$pdf->SetFont($lettra, 'I', 10, '', false);
+$pdf->SetTextColor(101, 102, 102);
+
+$pdf->SetXY(15, 245);
+$pdf->Cell(75, 0, 'Lic. Denisse Serrano Castellanos', 0, 1, 'C', 0, '', 0);
+$pdf->SetXY(15, 250);
+$pdf->Cell(75, 0, 'Directora de Administración', 0, 1, 'C', 0, '', 0);
+$pdf->SetXY(15, 255);
+$pdf->Cell(75, 0, 'denisse.serrano@yucatan.gob.mx', 0, 1, 'C', 0, '', 0);
+
+$pdf->SetXY(125, 245);
+$pdf->Cell(75, 0, 'Lic. Ericka Garibay Nava', 0, 1, 'C', 0, '', 0);
+$pdf->SetXY(125, 250);
+$pdf->Cell(75, 0, 'Directora de Vinculación', 0, 1, 'C', 0, '', 0);
+$pdf->SetXY(125, 255);
+$pdf->Cell(75, 0, 'ericka.garibay@yucatan.gob.mx', 0, 1, 'C', 0, '', 0);
+
+
+$pdf->SetTextColor(101, 102, 102);
+$pdf->SetFont($lettra, 'I', 7, '', false);
+$pdf->SetXY(155, 265);
+$pdf->Cell(0, 0, 'impreso el dia ' . Fecha::dateDMA(date("d-m-Y h:i a", time())) . '', 0, 0, 'L', 0, '', 0);
+
+
+$pdf->Close();
+// Print text using writeHTMLCell()
+// ---------------------------------------------------------
+// Close and output PDF document
+// This method has several options, check the source code documentation for more information.
+$pdf->Output('Folio_' . $solicitud->pkSolicitud . '.pdf', 'I');
+
+//============================================================+
+// END OF FILE
+//============================================================+
+?>
+
+

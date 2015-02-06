@@ -1,0 +1,31 @@
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+
+
+            <div class="row-fluid">
+                
+                 <div class="span3" style="height: 70px;">
+                    <div class="pull-left">
+                        <?php echo Html::img('logo_conciytey.png', 'Conciytey', ' class="pull-left"'); ?>     
+
+
+
+
+                    </div>
+                </div>
+                
+                
+                <div class="span6" style="text-align: center;">
+
+                    <?php $feria = Load::model('ap_ferias')->find_first('activo=1'); ?>
+                    <h2 style="margin: 0px; line-height: 40px;" class="white"><?php echo 'Sistema de Transporte'; ?> </h2>
+                    <span style="color: #fff; font-size: 25px;" class="label label-inverse  label-large arrowed-in arrowed-in-right"><span class="infobox-text"><?php echo $feria->nombre; ?></span></span>
+
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

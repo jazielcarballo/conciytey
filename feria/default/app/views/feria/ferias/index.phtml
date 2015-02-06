@@ -1,0 +1,24 @@
+<div class="page-header">
+    <h1>Lista de Ferias</h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div> 
+
+<?php
+View::partial('aplicacion/backend_header_action', FALSE, array('texto' => 'Crear', 'opciones' => FALSE));
+
+$dt = new DataTable($listFerias);
+$dt->addHeaders('id', 'Nombre Feria', 'Tematica', 'Fecha de Inicio', 'Fecha de Fin', 'Activo', 'Editar', 'Horarios', 'Eliminar');
+
+$dt->addFields('pkFeria', 'nombre', 'tematica', 'fechaInicio', 'fechaFin');
+$dt->imgLink('icon-eye-open|icon-eye-close', 'feria/ferias/activar|feria/ferias/desactivar', 'activar|desactivar', 'activo');
+$dt->imgLink('icon-edit', 'feria/ferias/editar');
+$dt->imgLink('icon-time', 'feria/ferias/horario');
+$dt->imgLinkConfirm('icon-trash', 'feria/ferias/eliminar', '', '¿Realmente desea Eliminar esta feria?');
+echo $dt->render('class="table table-bordered table-striped"');
+?>
+
+
+
+
