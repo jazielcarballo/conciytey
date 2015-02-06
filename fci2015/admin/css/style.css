@@ -1,0 +1,180 @@
+HTML {
+        HEIGHT: 100%
+}
+BODY {
+        PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND: #eee; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #414141; PADDING-TOP: 0px; FONT-FAMILY: "Trebuchet MS", verdana, sans-serif
+}
+#page-body {
+        PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; PADDING-TOP: 0px
+}
+#container {
+        BORDER-RIGHT: #8ea48e 1px solid; BORDER-TOP: #8ea48e 1px solid; MARGIN-TOP: 0px; BACKGROUND: white; MARGIN-LEFT: 4%; BORDER-LEFT: #8ea48e 1px solid; WIDTH: 95%; MARGIN-RIGHT: auto; BORDER-BOTTOM: #8ea48e 1px solid
+}
+#container-small {
+        BORDER-RIGHT: #8ea48e 1px solid; BORDER-TOP: #8ea48e 1px solid; MARGIN-TOP: 10px; BACKGROUND: white; MARGIN-LEFT: 18%; BORDER-LEFT: #8ea48e 1px solid; MARGIN-RIGHT: 17%; BORDER-BOTTOM: #8ea48e 1px solid; TEXT-ALIGN: center
+}
+#tinyfoot {
+        BORDER-TOP: #8ea48e 1px solid; FONT-SIZE: 11px; BACKGROUND-IMAGE: url(includes/header-fade.gif)
+}
+#banner {
+        PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(logo.gif) #c0c8c0 repeat-x left top; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #8ea48e 1px solid; HEIGHT: 115px
+}
+.bannerBlogTitle {
+        FONT-WEIGHT: bold; FONT-SIZE: 20px; LETTER-SPACING: 4px
+}
+.login {
+        FONT-WEIGHT: bold; FONT-SIZE: 9px; TEXT-TRANSFORM: uppercase; COLOR: #333333; FONT-FAMILY: arial, sans-serif; BACKGROUND-COLOR: #c4cccc
+}
+.addEntrySubmitButtons {
+        PADDING-RIGHT: 30px; PADDING-LEFT: 30px; FONT-WEIGHT: bold; FONT-SIZE: 9px; TEXT-TRANSFORM: uppercase; COLOR: #333333; FONT-FAMILY: arial, sans-serif; BACKGROUND-COLOR: #eef1ee
+}
+.addEntrySlide {
+        PADDING-RIGHT: 1px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(includes/datatableheader.jpg); PADDING-BOTTOM: 1px; CURSOR: pointer; COLOR: #333333; PADDING-TOP: 1px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif; HEIGHT: 15px
+}
+.dataTableHeader {
+        PADDING-RIGHT: 1px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(includes/datatableheader.jpg); PADDING-BOTTOM: 1px; COLOR: #333333; PADDING-TOP: 1px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+.additionalOptions {
+        BORDER-RIGHT: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid
+}
+.submitBar {
+        BORDER-TOP: #666666 1px solid; BACKGROUND-COLOR: #c4cccc
+}
+A {
+        COLOR: #06c
+}
+A:hover {
+        COLOR: #333
+}
+A:active {
+        COLOR: #000
+}
+A.templateLink {
+        FONT-WEIGHT: 200; FONT-SIZE: 12px; COLOR: #333333
+}
+A.templateLink:hover {
+        FONT-WEIGHT: 200; FONT-SIZE: 12px; COLOR: #666666
+}
+.categoryback {
+        PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #afbfad; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.uppernavOptions {
+        FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #666666
+}
+DIV.pathbar {
+        BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 4px; PADDING-LEFT: 4px; BACKGROUND: #fffdf3; PADDING-BOTTOM: 4px; MARGIN: 0px 25px; BORDER-LEFT: #000000 1px solid; COLOR: #003399; PADDING-TOP: 4px; BORDER-BOTTOM: #666666 1px solid
+}
+DIV.uppernav {
+        BORDER-TOP: #666666 1px solid; BACKGROUND: #b3c031; BORDER-BOTTOM: #666666 1px solid
+}
+DIV.uppernav A {
+        FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-COLOR: transparent
+}
+DIV.uppernav A.selected {
+        PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; BACKGROUND: #cccc99; PADDING-BOTTOM: 0px; COLOR: #000; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+DIV.uppernav A.selected:hover {
+        COLOR: #b3c031
+}
+DIV.uppernav A:link {
+        COLOR: #003399
+}
+DIV.uppernav A:active {
+        COLOR: #003399
+}
+DIV.uppernav A:visited {
+        COLOR: #003399
+}
+DIV.uppernav A:hover {
+        CURSOR: hand; COLOR: #8c8984
+}
+DIV.footer {
+        CLEAR: both; PADDING-RIGHT: 25px; BORDER-TOP: #94abd7 1px dotted; PADDING-LEFT: 25px; BACKGROUND: #ffffff; FLOAT: none; PADDING-BOTTOM: 10px; MARGIN: 12px 25px 0px; PADDING-TOP: 4px; TEXT-ALIGN: center
+}
+#topbar {
+        BORDER-RIGHT: #000000 1px solid; PADDING-LEFT: 10px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0.5em; BORDER-LEFT: #000000 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: trebuchet ms,verdana,sans-serif; BACKGROUND-COLOR: #607c8c
+}
+DIV.extraLinks {
+        BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #333333 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #e4e4e4; TEXT-ALIGN: right
+}
+DIV.content {
+        PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; COLOR: #333333; PADDING-TOP: 4px
+}
+DIV.contentBottom {
+        BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-SIZE: 13px; BACKGROUND: #cccc99; PADDING-BOTTOM: 0px; MARGIN: 0px 25px; BORDER-LEFT: #666666 1px solid; COLOR: #333333; PADDING-TOP: 0px; BORDER-BOTTOM: #666666 1px solid; TEXT-ALIGN: right
+}
+DIV.bottombar {
+        BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; PADDING-BOTTOM: 10px; MARGIN: 0px; WIDTH: 100%; COLOR: #333333; PADDING-TOP: 5px; HEIGHT: 15px; BACKGROUND-COLOR: #607c8c; TEXT-ALIGN: right
+}
+#editHeader {
+        PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 16px; BACKGROUND: #607c8c; PADDING-BOTTOM: 4px; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #000 1px solid
+}
+#pageHeader {
+        PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-WEIGHT: bold; FONT-SIZE: 16px; PADDING-BOTTOM: 3px; WIDTH: 99%; COLOR: #666666; PADDING-TOP: 3px; BORDER-BOTTOM: #666 1px solid
+}
+.headerStyle {
+        BORDER-RIGHT: #8ea48e 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #8ea48e 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 16px; BACKGROUND-IMAGE: url(includes/header-fade.gif); PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; BORDER-LEFT: #8ea48e 1px solid; COLOR: #666666; PADDING-TOP: 2px; BORDER-BOTTOM: #8ea48e 1px solid
+}
+.headerStyleSmall {
+        BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: 100; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; BORDER-LEFT: #666666 1px solid; COLOR: #666666; PADDING-TOP: 2px; BORDER-BOTTOM: #666666 1px solid
+}
+.submitFooter {
+        PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BACKGROUND-COLOR: #c4cccc
+}
+.dataTableHeader {
+        PADDING-RIGHT: 1px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(includes/datatableheader.jpg); PADDING-BOTTOM: 1px; COLOR: #333333; PADDING-TOP: 1px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+.datatableFooter {
+        PADDING-RIGHT: 1px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; COLOR: #333333; PADDING-TOP: 1px; FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+.pageFooterStyle {
+        PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BACKGROUND-COLOR: #c4cccc
+}
+.formFields {
+        BORDER-RIGHT: #bcad75 1px solid; BORDER-TOP: #bcad75 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #bcad75 1px solid; BORDER-BOTTOM: #bcad75 1px solid; BACKGROUND-COLOR: #ffffff
+}
+SELECT {
+        BORDER-RIGHT: #bcad75 1px solid; BORDER-TOP: #bcad75 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #bcad75 1px solid; BORDER-BOTTOM: #bcad75 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.contentBox {
+        BORDER-RIGHT: #cccc99 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccc99 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #cccc99 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccc99 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.contentTitle {
+        FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #c4cccc; COLOR: #666666
+}
+.infoWindow {
+        BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #333333 1px solid; COLOR: #000000; PADDING-TOP: 3px; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #fffdf3
+}
+.entriesSmall {
+        FONT-SIZE: 9px
+}
+.button2 {
+        BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 9px; TEXT-TRANSFORM: uppercase; BORDER-LEFT: #cccccc 1px solid; COLOR: #333333; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: arial, sans-serif; BACKGROUND-COLOR: #f4f4f4
+}
+.helpBox {
+        BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; BORDER-LEFT: #333333 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #333333 1px solid; FONT-FAMILY: verdana, arial, sans-serif; BACKGROUND-COLOR: #ffffff
+}
+.notificationBox {
+        PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 10px; COLOR: #226600; PADDING-TOP: 10px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: verdana, arial, sans-serif; BACKGROUND-COLOR: #e0e9cc
+}
+.notificationBox2 {
+        PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 10px; COLOR: #226600; PADDING-TOP: 10px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: verdana, arial, sans-serif; BACKGROUND-COLOR: #ffffe7
+}
+.helpBoxHeader {
+        FONT-WEIGHT: bold; FONT-SIZE: 10px; TEXT-TRANSFORM: uppercase; BACKGROUND-COLOR: #c4cccc
+}
+.sortOptionsBox {
+        BORDER-RIGHT: #cccc99 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #cccc99 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 10px; PADDING-BOTTOM: 4px; BORDER-LEFT: #cccc99 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #cccc99 1px solid
+}
+.sortOptionsBoxEntries {
+        BORDER-RIGHT: #cccc99 1px solid; BORDER-TOP: #cccc99 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #cccc99 1px solid; BORDER-BOTTOM: #cccc99 1px solid
+}
+.photoCategory {
+        BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; BORDER-LEFT: #333333 1px solid; WIDTH: 99%; PADDING-TOP: 2px; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #c4cccc
+}
+.photoUploadBar {
+        BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; BORDER-LEFT: #333333 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #c4cccc
+}
+.photoUploadExtras {
+        PADDING-RIGHT: 2px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; COLOR: #333333; PADDING-TOP: 2px
+}

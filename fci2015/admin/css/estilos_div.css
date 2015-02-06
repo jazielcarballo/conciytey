@@ -1,0 +1,138 @@
+/* CSS Document */
+
+body {
+	margin:0;
+	padding:0;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #FFF;TEXT-ALIGN:center;
+	background-image: url(../images/back.jpg);
+	background-position:top center ;
+	background-repeat:repeat-x;
+	}
+
+#contenedor {
+	text-align: left;
+	margin: 0px auto;
+	padding-top:50px;
+	border:0;
+	width: 722px;
+}
+#header{
+	margin:0px;
+	padding: 0 0 0 0;
+	height:136px;
+	background-image:url(../images/header_fnd.jpg);
+	background-repeat:no-repeat;
+	
+}
+
+#logo{
+	margin:0px;
+	padding: 0 0 0 0px;
+	width:225px;
+	height:130px;
+	background-image: url(../images/logo.png);
+	background-repeat:no-repeat;
+	float:left;
+}
+
+#tit{
+	margin:0 auto;
+	width:496px;
+	height:25px;
+	padding: 5px 0 0 0;
+	float: right;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:19px;
+	color:#333;
+}
+
+#tit2{
+	margin:0 auto;
+	width:496px;
+	height:25px;
+	clear:right;
+	float: right;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+}
+
+#contenedor_campos{
+	text-align: left;
+	margin: 0px auto;
+	padding-top:10px;
+	height:25px;
+	width:496px;
+	clear:right;
+	float:right;
+	
+}
+#campo1{
+	padding: 0 0 0 25px;
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color: #333;
+}
+
+#campo2{
+	padding: 0 0 0 10px;
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color: #333;
+}	
+
+#campo3{
+	padding: 0 6px 0 15px;
+	float:left;
+
+}
+
+
+#textoalerta{
+	margin:0 auto;
+	width:496px;
+	height:15px;
+	clear:right;
+	float: right;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color: #F00;
+}
+
+#cuerpoimg{
+	margin:0 auto;
+	height:353px;
+	background-color:#dbdbdb;
+	
+}
+
+/* ---------------------------------------------        Estilos de Texto        ----------------------------------------*/
+.searchText {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dadada;
+	font-size: 17px;
+	color: #3f3f3f;
+	background-color:#dadada;
+	width: 100%;
+	
+}
+
+	.searchText:hover {
+		border-color: #c8c8c8;
+		border-width: 1px;
+		background-color:#c8c8c8;
+	}
+	
+	.searchText:focus, {
+		border-color: #b5e4f2; 
+		border-width: 1px;
+		background-color:#b5e4f2;
+	}

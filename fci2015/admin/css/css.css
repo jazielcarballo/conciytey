@@ -1,0 +1,640 @@
+
+A:active {
+        COLOR: #000000; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+A:visited {
+        COLOR: #000000; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+A:hover {
+        COLOR: #3894E5; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+A:link {
+        COLOR: #000000; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#blue:link {
+        COLOR: #0000CC; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#blue:visited {
+        COLOR: #0000CC; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#blue:hover {
+        COLOR: #0000CC; TEXT-DECORATION: underline; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#navlink:link {
+        COLOR: #707070; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#navlink:visited {
+        COLOR: #707070; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#navlink:hover {
+        COLOR: orange; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#white:link {
+        COLOR: #FFFFFF; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#white:visited {
+        COLOR: #FFFFFF; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#white:hover {
+        COLOR: yellow; TEXT-DECORATION: none; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+#moduletitle:link {
+        FONT-WEIGHT: none; FONT-SIZE: 11px; COLOR: #277DC9; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: none
+}
+#moduletitle:visited {
+        FONT-WEIGHT: none; FONT-SIZE: 11px; COLOR: #277DC9; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: none
+}
+#moduletitle:hover {
+        FONT-WEIGHT: none; FONT-SIZE: 11px; COLOR: #ff7200; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: underline
+}
+#footerlink:link {
+        FONT-WEIGHT: none; FONT-SIZE: 11px; COLOR: #EFEFEF; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: none
+}
+#footerlink:visited {
+        FONT-WEIGHT: none; FONT-SIZE: 11px; COLOR: #EFEFEF; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: none
+}
+#footerlink:hover {
+        FONT-WEIGHT: none; FONT-SIZE: 11px; COLOR: orange; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: underline
+}
+#newstitle:link {
+        FONT-WEIGHT: none; FONT-SIZE: 15px; COLOR: #277DC9; FONT-FAMILY: Trebuchet MS, Verdana, Arial, Helvetica; TEXT-DECORATION: none;
+}
+#newstitle:visited {
+        FONT-WEIGHT: none; FONT-SIZE: 15px; COLOR: #277DC9; FONT-FAMILY: Trebuchet MS, Verdana, Arial, Helvetica; TEXT-DECORATION: none;
+}
+#newstitle:hover {
+        FONT-WEIGHT: none; FONT-SIZE: 15px; COLOR: red; FONT-FAMILY: Trebuchet MS, Verdana, Arial, Helvetica; TEXT-DECORATION: none;
+}
+#articlelink:link {
+        FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #3366CC; FONT-FAMILY: Verdana, Arial, Helvetica; TEXT-DECORATION: none;
+}
+#articlelink:visited {
+        FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #3366CC; FONT-FAMILY: Verdana, Arial, Helvetica; TEXT-DECORATION: none;
+}
+#articlelink:hover {
+        FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: orange; FONT-FAMILY: Verdana, Arial, Helvetica; TEXT-DECORATION: underline;
+}
+
+.swiftbutton
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #333333;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 12px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #CCCCCC;
+        BORDER-WIDTH: 2px;
+}
+
+.bluebutton
+{
+        BORDER: solid 0 #FFFFFF;
+        BACKGROUND: URL(bluebuttonbg.gif) no-repeat;
+        HEIGHT: 21px;
+        WIDTH: 85px;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        MARGIN: 0px;
+    padding-top: 3px;
+    padding-bottom: 15px;
+    vertical-align:middle;
+}
+
+.orangebutton
+{
+        BORDER: solid 0 #FFFFFF;
+        BACKGROUND: URL(/orangebuttonbg.gif) no-repeat;
+        HEIGHT: 21px;
+        WIDTH: 85px;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        MARGIN: 0px;
+    padding-top: 3px;
+    padding-bottom: 15px;
+    vertical-align:middle;
+}
+
+.yellowbutton
+{
+        BORDER: solid 0 #FFFFFF;
+        BACKGROUND: URL(images/yellowbuttonbg.gif) no-repeat;
+        HEIGHT: 21px;
+        WIDTH: 64px;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        MARGIN: 0px;
+    padding-top: 3px;
+    padding-bottom: 15px;
+    vertical-align:middle;
+}
+
+.yellowbuttonbig
+{
+        BORDER: solid 0 #FFFFFF; BACKGROUND: URL(/yellowbuttonbigbg.gif) no-repeat; HEIGHT: 21px; WIDTH: 100px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px; MARGIN: 0px; padding-top: 3px; padding-bottom: 15px; ALIGN: center; vertical-align:middle;
+}
+
+.commentrow1
+{
+        BACKGROUND-COLOR: #FFFDF7; BORDER: 0px SOLID #FFE6B8; COLOR: #333333; WIDTH: 99%;PADDING: 2px; MARGIN: 2px; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+
+.commentrow2
+{
+        BACKGROUND-COLOR: #FFFFFF; BORDER: 0px SOLID #FFFBF2; COLOR: #333333; WIDTH: 99%;PADDING: 2px; MARGIN: 2px; FONT-FAMILY: Verdana, Tahoma; FONT-SIZE: 11px;
+}
+
+.commenthr
+{
+        BORDER: none;
+        BACKGROUND-COLOR: #FFEECF;
+        COLOR: #FFEECF;
+        HEIGHT: 1px;
+        MARGIN: 3 1 3 1;
+        PADDING: 0;
+}
+
+.swifttext
+{
+        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        PADDING: 2px 2px 2px 2px;
+}
+
+.departmentselect
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+}
+
+.swifttextarea
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 100%;
+        PADDING: 2px 2px 2px 2px;
+}
+
+.swifttimer
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #FFFFFF;
+        BORDER-WIDTH: 0px;
+        WIDTH: 50px;
+        TEXT-ALIGN: right;
+        PADDING-RIGHT: 5px;
+}
+
+.navitem
+{
+        BACKGROUND-COLOR: #FEFEFE;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-BOTTOM: 1px solid #F5F5F5;
+        PADDING: 4px;
+}
+
+.navitemhover
+{
+        BACKGROUND-COLOR: #FFF8E9;
+        COLOR: #476CA4;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-BOTTOM: 1px solid #F5F5F5;
+        PADDING: 4px;
+}
+
+.swiftpostmessage
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 12px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 98%;
+        HEIGHT: 40px;
+        OVERFLOW: auto;
+        PADDING: 2px 2px 2px 2px;
+}
+
+.swiftsendbutton
+{
+        BACKGROUND: URL(/sendbuttonbg.gif);
+        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 12px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #3894E5;
+        BORDER-WIDTH: 1px;
+        WIDTH: 98%;
+        HEIGHT: 40px;
+        PADDING: 2px 2px 2px 2px;
+}
+
+.mediumtext
+{
+    FONT-SIZE: 12px;
+    COLOR: #333333;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.articlepreview
+{
+        COLOR: #404040;
+        FONT-SIZE: 10px;
+        FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.dlitempreview
+{
+    FONT-SIZE: 11px;
+    COLOR: #606060;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.smalltext
+{
+    FONT-SIZE: 12px;
+    COLOR: #333333;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.ticketpostname
+{
+    FONT-SIZE: 18px;
+    COLOR: #333333;
+    FONT-FAMILY: Trebuchet MS, Verdana, Arial, Helvetica;
+}
+
+.articletitle
+{
+    FONT-SIZE: 18px;
+    COLOR: #333333;
+    FONT-FAMILY: Trebuchet MS, Verdana, Arial, Helvetica;
+}
+
+.printabletext
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica;
+        LETTER-SPACING: 2px;
+}
+
+.usertyping
+{
+    FONT-SIZE: 11px;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Verdana, Arial;
+}
+
+.error
+{
+    FONT-SIZE: 11px;
+    COLOR: #E55838;
+    FONT-FAMILY: Verdana, Arial;
+}
+
+.title
+{
+        FONT-SIZE: 14px;
+        COLOR: #277DC9;
+        FONT-FAMILY: Trebuchet MS, Verdana, Arial;
+}
+
+.body
+{
+    FONT-SIZE: 11px;
+    COLOR: #333333;
+    FONT-FAMILY: Verdana, Arial;
+}
+
+.searchtext
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 140px;
+        PADDING: 2px 2px 2px 2px;
+        MARGIN: 0px;
+        vertical-align: middle;
+}
+
+.logintext
+{
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 123px;
+        PADDING: 3px 2px 2px 2px;
+        MARGIN: 0px;
+        BACKGROUND: URL(/icon_user.gif) no-repeat;
+        BACKGROUND-POSITION: 1px 1px;
+        BACKGROUND-COLOR: #FFFFFF;
+        PADDING-LEFT: 18px;
+        VERTICAL-ALIGN: middle;
+}
+.loginpassword
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 140px;
+        PADDING: 3px 2px 2px 2px;
+        MARGIN: 0px;
+        VERTICAL-ALIGN: middle;
+}
+.searchselect
+{        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 100%;
+}
+.languageselect
+{        BACKGROUND-COLOR: #EFEFEF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER-STYLE: solid;
+        BORDER-COLOR: #888888;
+        BORDER-WIDTH: 1px;
+        WIDTH: 120px;
+}
+
+form
+{
+        MARGIN: 0px;
+        PADDING: 0px;
+}
+
+.borderrow1
+{
+        BACKGROUND-COLOR: #6393DF;
+}
+
+.qbrow1
+{
+        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.qbrow2
+{
+        BACKGROUND-COLOR: #FAFCFF;
+        COLOR: #000000;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.sectiontitlebg
+{
+        BACKGROUND: #FFFFFF url(/navtitlebg.gif) repeat-x top left;
+        COLOR: #333333;
+        FONT-SIZE: 11px;
+        FONT-FAMILY: Verdana, Arial, Helvetica;
+        PADDING: 0px;
+}
+
+.qbtitle
+{
+        background: #EAEDF4 url(/qbtablebg.gif) repeat-x top left;
+    COLOR: #333333;
+        FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+        HEIGHT: 16px;
+        PADDING: 2px 2px 2px 2px;
+        MARGIN: 0px;
+        BORDER-TOP: 1px SOLID #90A0B0;
+        BORDER-BOTTOM: 1px SOLID #90A0B0;
+}
+
+.rowhighlight
+{
+        background-color: #FFF8E9;
+        color: #000000;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.tabletitle
+{
+        background: #EAEDF4 url(//titletablebg.gif) repeat-x top left;
+    COLOR: #333333;
+        FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+        HEIGHT: 16px;
+        PADDING: 2px 2px 2px 2px;
+        MARGIN: 0px;
+        BORDER-TOP: 1px SOLID #BBC0C0;
+        BORDER-BOTTOM: 1px SOLID #BBC0C0;
+}
+
+.ticketsubject
+{
+        COLOR: #333333;
+    FONT-SIZE: 12px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+        FONT-WEIGHT: bold;
+}
+
+.row1
+{
+        BACKGROUND-COLOR: #EDF4FF;
+        COLOR: #000000;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.row2
+{
+        BACKGROUND-COLOR: #F7FAFF;
+        COLOR: #000000;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.row3
+{
+        BACKGROUND-COLOR: #FFF8E9;
+        COLOR: #000000;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.tborder
+{
+        background-color: #FFFFFF;
+        color: #000000;
+        border: 1px solid #6393DF;
+}
+
+.ticketline
+{
+        BACKGROUND-COLOR: #96B9F0;
+}
+
+.tickethr
+{
+        BACKGROUND-COLOR: #D1DCEB; COLOR: #D1DCEB; BORDER: 0; HEIGHT:1px; MARGIN-TOP: 0; MARGIN-BOTTOM: 8;
+}
+
+.tbordererror
+{
+        background-color: #FFFFFF;
+        color: #000000;
+        border: 1px solid #E82A2A;
+}
+
+.errorbox
+{
+        background-color: #FFEAEA;
+        color: #333333;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana, Arial;
+}
+.tcat
+{
+        background: #80A9EA url(//tablebg.gif) repeat-x top left;
+    COLOR: #FFFFFF;
+        FONT: 12px Verdana, Tahoma;
+}
+
+.tabletitlerow
+{
+        BACKGROUND: #80A9EA url(//tabledescbg.gif) REPEAT-X TOP LEFT;
+    COLOR: #113265;
+        FONT: 11px Verdana, Tahoma;
+}
+
+.contenttableborder
+{
+        background: #D1DCEB;
+        color: #FFFFFF;
+}
+.tborder
+{
+        background-color: #FFFFFF;
+        color: #000000;
+        border: 1px solid #6393DF;
+}
+.redtext
+{
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Verdana, Arial;
+}
+.swiftselect
+{
+        BORDER: 1px SOLID #4C77B6;
+        BACKGROUND-COLOR: #FFFFFF;
+        COLOR: #000000;
+        FONT-FAMILY: Verdana, Tahoma;
+        FONT-SIZE: 11px;
+        BORDER: 1px SOLID #666666;
+        margin: 0px;
+        padding: 1px;
+        vertical-align: middle;
+}
+
+.navpage
+{
+        background-color: #FFFFFF;
+        color: #FFFFFF;
+        font: 11px Tahoma, Verdana;
+        padding: 2px 4px 2px 4px;
+        white-space: nowrap;
+}
+
+.navpageselected
+{
+        background-color: #E5F3FE;
+        color: #000000;
+        font: 11px Tahoma, Verdana;
+        padding: 2px 4px 2px 4px;
+        white-space: nowrap;
+}
+.highlightpage
+{
+        background-color: #659ECB;
+        color: #FFFFFF;
+        font: bold 11px Tahoma, Verdana;
+        padding: 2px 4px 2px 4px;
+        white-space: nowrap;
+}
+.highlightpage a:link
+{
+        color: #FFFFFF;
+        text-decoration: none;
+}
+.highlightpage a:visited
+{
+        color: #FFFFFF;
+        text-decoration: none;
+}
+.highlightpage a:hover, .highlightpage a:active
+{
+        color: #FFFFFF;
+        text-decoration: underline;
+}
+.newsdate
+{
+        FONT-SIZE: 11px;
+        COLOR: #999999;
+        FONT-FAMILY: Verdana, Arial, Helvetica;
+        MARGIN: 0 0 2px 0;
+}
+
+.irsui
+{
+        BACKGROUND-COLOR: #FFFBF2; BORDER: 1px SOLID #FFE6B8; COLOR: #333333; WIDTH: 100%;-moz-border-radius: 6px 6px 6px 6px; PADDING: 0px; MARGIN: 0px;
+}
+
+.irshr
+{
+        BORDER: none;
+        COLOR: #FFEECF;
+        BACKGROUND-COLOR: #FFEECF;
+        HEIGHT: 1px;
+        MARGIN: 3 1 3 1;
+        PADDING: 0;
+}
+
+.swiftfieldset { margin-bottom: 6px; color: #267DDC; BORDER: 1px SOLID #CCCCCC; -moz-border-radius: 4px 4px 4px 4px; padding: 4px}
+.swiftfieldset, .swiftfieldset td, .swiftfieldset p, .swiftfieldset li { FONT: 11px Verdana, Tahoma; }
+
+td,tr{FONT: 11px Verdana, Tahoma;}

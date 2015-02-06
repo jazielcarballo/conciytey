@@ -1,0 +1,213 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="css/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/menu/dropdown.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+<link rel="stylesheet" href="css/menu/default.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+<link rel="stylesheet" href="css/slimpicker.css" media="screen, projection" /> 
+<title>Administracion</title>
+</head>
+<body>
+<div id="titulo_seccion"><span style="cursor:pointer" onClick="window.location='mensajes.asp'">REPORTE DE ESTADOS DE CUENTA POR CLIENTE, LOTE O TARJETA </span></div>
+<div>
+<div id="opciones" style="border:solid 10px #FFF"></div>
+<div id="contenido">
+<form id="Busqueda" name="Busqueda" action="reportes_estados_cuenta.asp" method="get">
+<div>
+    <div id="opciones" style="border:solid 10px #FFF"></div>
+    <br>
+<div id="contenido">
+
+<input type="hidden" name="iOpcionOrdenar" value="">
+<input type="hidden" name="iCampoOrdenar" value="">
+
+<table width="100%" class="Letra_negra_pequena">
+    <tr style="background-image:url(images/bgfooter.gif);">
+        <td width="3%" align="center">
+            <b style="cursor:pointer" title="Order por ID" onClick="Ordenar(1)">ID
+            
+            </b>
+        </td>
+        <td width="9%" align="left"><b style="cursor:pointer" title="Order por ID Consumo Pago" onClick="Ordenar(2)">ID Consumo Pago
+            
+        </b></td>
+        <td width="9%" align="left"><b style="cursor:pointer" title="Order por ID Cliente" onClick="Ordenar(3)">ID Cliente
+            
+        </b></td>
+        <td width="7%" align="left">
+        	<b style="cursor:pointer" title="Order por ID Lote" onClick="Ordenar(4)">ID Lote
+            
+            </b>
+        </td>
+        <td width="7%" align="left">
+        	<b style="cursor:pointer" title="Order por ID Tarjeta" onClick="Ordenar(5)">ID Tarjeta
+            
+            </b>
+        </td>
+        <td width="10%" align="left"><b style="cursor:pointer" title="Order por Fecha Hora" onClick="Ordenar(6)">Fecha Hora
+            
+        </b></td>
+        <td width="11%" align="left"><strong>Tipo Movimiento
+            </strong></td>
+        <td width="10%" align="left"><strong>Monto Movimiento
+            </strong></td>
+        <td width="10%" align="left"><strong>Saldo Movimiento</strong></td>
+         <td width="17%" align="left"><b style="cursor:pointer" title="Order por Tarjeta Completa" onClick="Ordenar(10)">Tarjeta Completa
+             
+        </b></td>
+
+        
+        <td width="7%" align="center"><strong>Opciones</strong></td>
+    </tr>
+
+	<tr class="normalsmall" style="background-color:#b8cde2"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#b8cde2',style.color='000000'" style="cursor:pointer">
+		<td align="center" >3</td>
+        <td align="left" >3</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >02/12/2010 12:56:06 p.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$100.17</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000100000001</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 5" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=5"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#dce6f1"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#dce6f1',style.color='000000'" style="cursor:pointer">
+		<td align="center" >4</td>
+        <td align="left" >4</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >03/12/2010 12:32:32 p.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$1.13</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000100000001</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 6" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=6"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#b8cde2"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#b8cde2',style.color='000000'" style="cursor:pointer">
+		<td align="center" >5</td>
+        <td align="left" >5</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >2</td>
+        <td align="left" >03/12/2010 01:07:02 p.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$0.55</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000200000002</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 8" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=8"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#dce6f1"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#dce6f1',style.color='000000'" style="cursor:pointer">
+		<td align="center" >6</td>
+        <td align="left" >6</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >09/12/2010 12:21:00 p.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$296.10</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000100000001</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 11" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=11"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#b8cde2"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#b8cde2',style.color='000000'" style="cursor:pointer">
+		<td align="center" >7</td>
+        <td align="left" >7</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >4</td>
+        <td align="left" >10/12/2010 10:50:27 a.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$540.03</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000400000004</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 12" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=12"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#dce6f1"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#dce6f1',style.color='000000'" style="cursor:pointer">
+		<td align="center" >8</td>
+        <td align="left" >8</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >10/12/2010 01:01:57 p.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$0.96</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000100000001</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 14" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=14"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#b8cde2"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#b8cde2',style.color='000000'" style="cursor:pointer">
+		<td align="center" >9</td>
+        <td align="left" >9</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >11/12/2010 10:18:26 a.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$20.00</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000100000001</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 15" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=15"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+	<tr class="normalsmall" style="background-color:#dce6f1"onMouseOver="style.backgroundColor='#427bb3',style.color='FFFFFF'"onMouseOut="style.backgroundColor='#dce6f1',style.color='000000'" style="cursor:pointer">
+		<td align="center" >10</td>
+        <td align="left" >10</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >1</td>
+        <td align="left" >13/12/2010 01:13:29 p.m.</td>
+        <td align="left" ></td>
+        <td align="left" >$20.00</td>
+         <td align="left" ></td>
+        <td align="left" >000100010001000100000001</td>
+        <td align="center" valign="top">
+        <a class="smoothbox" title="Ver detalles del tarjeta: 16" rel="EX" href="reportes_estados_cuenta_detalle.asp?height=370&width=800&Id=16"><img src="images/zoom.png" alt="Ver detalles" width="16" height="16" border="0"></a>
+        </td>
+        </tr>
+ 
+</table>
+
+</div>
+<div id="paginador">
+<table width="100%">
+<tr>
+<td align="center">&nbsp;</td>
+</tr>
+</table>
+</div>
+</div>
+</form>
+</div>
+<div id="paginador"></div>
+</div>
+<script>
+$$('input.slimpicker').each( function(el){
+	var picker = new SlimPicker(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿/* Este sitio fue diseñado y desarrollado de acuerdo con estándares profesionales. Gracias a que cuenta con diseño responsivo, su contenido se ajusta automáticamente a la pantalla al ser desplegado en cualquier clase de computadora o dispositivo móvil. Desarrollo a la medida de Influx para Feria Nacional de Ciencias e Ingeniería. */
+
+/* influx.com.mx */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Software: Sublime

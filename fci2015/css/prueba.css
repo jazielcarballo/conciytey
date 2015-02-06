@@ -1,0 +1,60 @@
+@media print {
+  #fileupload, #fileupload-label{
+    display: none !important;
+  }
+input, textarea, select {
+    border: none !important;
+    border-style: none !important;
+    border-color: white !important;
+    background-color:transparent !important;
+    box-shadow: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    outline-style: none !important;
+    text-shadow: none !important;
+    border-radius: 0 !important;
+    outline-offset: 0 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -o-appearance: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+}
+
+.registro input[type="text"],
+.registro input[type="date"],
+.registro input[type="email"],
+.registro input[type="number"],
+.registro textarea, 
+.registro select{
+    border: none !important;
+    box-shadow:2px 2px 2px 2px rgba(127,127,127,0.16);
+    outline: none !important;
+    -webkit-print-color-adjust:exact;
+    -webkit-filter:opacity(1);
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+        display: none !important;
+        visibility: hidden !important;
+       -webkit-appearance: none !important;
+       -moz-appearance: none !important;
+       -o-appearance: none !important;
+       -webkit-print-color-adjust:exact;
+       -webkit-filter:opacity(1);
+
+    }
+
+input[type="checkbox"]:checked ,
+input[type="radio"]:checked {
+        opacity:1!important;
+        /*position: absolute !important;*/
+        display: inline-block !important;
+        /*margin-left: 20px;*/
+        visibility: visible !important;
+        background:#000;
+
+    }
+
+}
